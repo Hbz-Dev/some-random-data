@@ -9,6 +9,7 @@ import { fileTypeFromBuffer } from 'file-type'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import store from './store.js'
+let conv = await import('./sticker.js')
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -16,7 +17,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
  * @type {import('@adiwajshing/baileys')}
  */
 const {
-    default: _makeWaSocket,
+    default: makeWASocket,
+    makeWALegacySocket,
     proto,
     downloadContentFromMessage,
     jidDecode,
@@ -24,16 +26,17 @@ const {
     generateForwardMessageContent,
     generateWAMessageFromContent,
     WAMessageStubType,
-    extractMessageContent, jidNormalizedUser
+    extractMessageContent, 
+    jidNormalizedUser
 } = (await import('@adiwajshing/baileys')).default
 
-//import * as baileys from '@adiwajshing/baileys'
+import * as baileys from '@adiwajshing/baileys'
 
-export function makeWASocket(connectionOptions, options = {}) {
+export function makeWaSocket(connectionOptions, options = {}) {
     /**
      * @type {import('@adiwajshing/baileys').WASocket | import('@adiwajshing/baileys').WALegacySocket}
      */
-    let conn = _makeWaSocket(connectionOptions)
+    let conn = (global.opts['legacy'] ? makeWALegacySocket : makeWASocket)(connectionOptions)
 
     let sock = Object.defineProperties(conn, {
         chats: {
@@ -115,6 +118,18 @@ export function makeWASocket(connectionOptions, options = {}) {
             },
             enumerable: true
         },
+      /*
+   Yo, I don't know
+*/
+      sendSticker: {
+
+async value(jid, media, m, opts = {}) {
+   
+   const medias = await conn.getFile(media)
+   return this.sendMessage(jid, await conv.sticker(medias.data, null, opts.packname || 'Whatsapp Bot', opts.author || conn.user.name), 'stickerMessage', { quoted: m, ...opts })
+   }
+},
+      
         waitEvent: {
             /**
              * waitEvent
@@ -244,7 +259,33 @@ END:VCARD
             },
             enumerable: true
         },
-        reply: {
+      /** test reply **/
+      sendMsg: {
+			async value(jid, message = {}, options = {}) {
+				return await conn.sendMessage(jid, message, { ...options, ...ephemeral })
+			},
+			enumerable: true
+		},
+      sendFAudio: {
+			async value(jid, audioinfo = {}, m, title, thumbnailUrl, sourceUrl, body = '', LargerThumbnail = true, AdAttribution = true) {
+				return await conn.sendMessage(m.chat, {
+					...audioinfo,
+					contextInfo: {
+						externalAdReply: {
+							title: title,
+							body: body,
+							thumbnailUrl: thumbnailUrl,
+							sourceUrl: sourceUrl,
+							mediaType: 1,
+							showAdAttribution: AdAttribution,
+							renderLargerThumbnail: LargerThumbnail
+						}
+					}
+				}, { quoted: m, ...ephemeral })
+			},
+			enumerable: true
+		},
+       reply: {
             /**
              * Reply to a message
              * @param {String} jid
@@ -253,139 +294,239 @@ END:VCARD
              * @param {Object} options
              */
             value(jid, text = '', quoted, options) {
-                return Buffer.isBuffer(text) ? conn.sendFile(jid, text, 'file', '', quoted, false, options) : conn.sendMessage(jid, { ...options, text }, { quoted, ...options })
+                return Buffer.isBuffer(text) ? conn.sendFile(jid, text, 'file', '', quoted, false, options) : conn.sendMessage(jid, {
+                    ...options,
+                    text
+                }, {
+                    quoted,
+                    ...options
+                })
             }
         },
-        // sendButton: {
-        //     /**
-        //      * send Button
-        //      * @param {String} jid
-        //      * @param {String} text
-        //      * @param {String} footer
-        //      * @param {Buffer} buffer
-        //      * @param {String[] | String[][]} buttons
-        //      * @param {import('@adiwajshing/baileys').proto.WebMessageInfo} quoted
-        //      * @param {Object} options
-        //      */
-        //     async value(jid, text = '', footer = '', buffer, buttons, quoted, options) {
-        //         let type
-        //         if (Array.isArray(buffer)) (options = quoted, quoted = buttons, buttons = buffer, buffer = null)
-        //         else if (buffer) try { (type = await conn.getFile(buffer), buffer = type.data) } catch { buffer = null }
-        //         if (!Array.isArray(buttons[0]) && typeof buttons[0] === 'string') buttons = [buttons]
-        //         if (!options) options = {}
-        //         let message = {
-        //             ...options,
-        //             [buffer ? 'caption' : 'text']: text || '',
-        //             footer,
-        //             buttons: buttons.map(btn => ({
-        //                 buttonId: !nullish(btn[1]) && btn[1] || !nullish(btn[0]) && btn[0] || '',
-        //                 buttonText: {
-        //                     displayText: !nullish(btn[0]) && btn[0] || !nullish(btn[1]) && btn[1] || ''
-        //                 }
-        //             })),
-        //             ...(buffer ?
-        //                 options.asLocation && /image/.test(type.mime) ? {
-        //                     location: {
-        //                         ...options,
-        //                         jpegThumbnail: buffer
-        //                     }
-        //                 } : {
-        //                     [/video/.test(type.mime) ? 'video' : /image/.test(type.mime) ? 'image' : 'document']: buffer
-        //                 } : {})
-        //         }
+        sendButton: {
+            /**
+             * send Button
+             * @param {String} jid
+             * @param {String} text
+             * @param {String} footer
+             * @param {Buffer} buffer
+             * @param {String[] | String[][]} buttons
+             * @param {import('@adiwajshing/baileys').proto.WebMessageInfo} quoted
+             * @param {Object} options
+             */
+            async value(jid, text = '', footer = '', buffer, buttons, quoted, options) {
+                let type
+                if (Array.isArray(buffer)) (options = quoted, quoted = buttons, buttons = buffer, buffer = null)
+                else if (buffer) try { (type = await conn.getFile(buffer), buffer = type.data) } catch { buffer = null }
+                if (!Array.isArray(buttons[0]) && typeof buttons[0] === 'string') buttons = [buttons]
+                if (!options) options = {}
+                let message = {
+                    ...options,
+                    [buffer ? 'caption' : 'text']: text || '',
+                    footer,
+                    buttons: buttons.map(btn => ({
+                        buttonId: !nullish(btn[1]) && btn[1] || !nullish(btn[0]) && btn[0] || '',
+                        buttonText: {
+                            displayText: !nullish(btn[0]) && btn[0] || !nullish(btn[1]) && btn[1] || ''
+                        }
+                    })),
+                    ...(buffer ?
+                        options.asLocation && /image/.test(type.mime) ? {
+                            location: {
+                                ...options,
+                                jpegThumbnail: buffer
+                            }
+                        } : {
+                            [/video/.test(type.mime) ? 'video' : /image/.test(type.mime) ? 'image' : 'document']: buffer
+                        } : {})
+                }
 
-        //         return await conn.sendMessage(jid, message, {
-        //             quoted,
-        //             upload: conn.waUploadToServer,
-        //             ...options
-        //         })
-        //     },
-        //     enumerable: true
-        // },
-        // sendHydrated: {
-        //     /**
-        //      * 
-        //      * @param {String} jid 
-        //      * @param {String} text 
-        //      * @param {String} footer 
-        //      * @param {fs.PathLike} buffer
-        //      * @param {String|string[]} url
-        //      * @param {String|string[]} urlText
-        //      * @param {String|string[]} call
-        //      * @param {String|string[]} callText
-        //      * @param {String[][]} buttons
-        //      * @param {import('@adiwajshing/baileys').proto.WebMessageInfo} quoted
-        //      * @param {Object} options
-        //      */
-        //     async value(jid, text = '', footer = '', buffer, url, urlText, call, callText, buttons, quoted, options) {
-        //         let type
-        //         if (buffer) try { (type = await conn.getFile(buffer), buffer = type.data) } catch { buffer = buffer }
-        //         if (buffer && !Buffer.isBuffer(buffer) && (typeof buffer === 'string' || Array.isArray(buffer))) (options = quoted, quoted = buttons, buttons = callText, callText = call, call = urlText, urlText = url, url = buffer, buffer = null)
-        //         if (!options) options = {}
-        //         let templateButtons = []
-        //         if (url || urlText) {
-        //             if (!Array.isArray(url)) url = [url]
-        //             if (!Array.isArray(urlText)) urlText = [urlText]
-        //             templateButtons.push(...(
-        //                 url.map((v, i) => [v, urlText[i]])
-        //                     .map(([url, urlText], i) => ({
-        //                         index: templateButtons.length + i + 1,
-        //                         urlButton: {
-        //                             displayText: !nullish(urlText) && urlText || !nullish(url) && url || '',
-        //                             url: !nullish(url) && url || !nullish(urlText) && urlText || ''
-        //                         }
-        //                     })) || []
-        //             ))
-        //         }
-        //         if (call || callText) {
-        //             if (!Array.isArray(call)) call = [call]
-        //             if (!Array.isArray(callText)) callText = [callText]
-        //             templateButtons.push(...(
-        //                 call.map((v, i) => [v, callText[i]])
-        //                     .map(([call, callText], i) => ({
-        //                         index: templateButtons.length + i + 1,
-        //                         callButton: {
-        //                             displayText: !nullish(callText) && callText || !nullish(call) && call || '',
-        //                             phoneNumber: !nullish(call) && call || !nullish(callText) && callText || ''
-        //                         }
-        //                     })) || []
-        //             ))
-        //         }
-        //         if (buttons.length) {
-        //             if (!Array.isArray(buttons[0])) buttons = [buttons]
-        //             templateButtons.push(...(
-        //                 buttons.map(([text, id], index) => ({
-        //                     index: templateButtons.length + index + 1,
-        //                     quickReplyButton: {
-        //                         displayText: !nullish(text) && text || !nullish(id) && id || '',
-        //                         id: !nullish(id) && id || !nullish(text) && text || ''
-        //                     }
-        //                 })) || []
-        //             ))
-        //         }
-        //         let message = {
-        //             ...options,
-        //             [buffer ? 'caption' : 'text']: text || '',
-        //             footer,
-        //             templateButtons,
-        //             ...(buffer ?
-        //                 options.asLocation && /image/.test(type.mime) ? {
-        //                     location: {
-        //                         ...options,
-        //                         jpegThumbnail: buffer
-        //                     }
-        //                 } : {
-        //                     [/video/.test(type.mime) ? 'video' : /image/.test(type.mime) ? 'image' : 'document']: buffer
-        //                 } : {})
-        //         }
-        //         return await conn.sendMessage(jid, message, {
-        //             quoted,
-        //             upload: conn.waUploadToServer,
-        //             ...options
-        //         })
-        //     },
-        //     enumerable: true
-        // },
+                return await conn.sendMessage(jid, message, {
+                    quoted,
+                    upload: conn.waUploadToServer,
+                    ...options
+                })
+            },
+            enumerable: true
+        },
+        sendHydrated: {
+            /**
+             * 
+             * @param {String} jid 
+             * @param {String} text 
+             * @param {String} footer 
+             * @param {fs.PathLike} buffer
+             * @param {String|string[]} url
+             * @param {String|string[]} urlText
+             * @param {String|string[]} call
+             * @param {String|string[]} callText
+             * @param {String[][]} buttons
+             * @param {import('@adiwajshing/baileys').proto.WebMessageInfo} quoted
+             * @param {Object} options
+             */
+            async value(jid, text = '', footer = '', buffer, url, urlText, call, callText, buttons, quoted, options) {
+                let type
+                if (buffer) try { (type = await conn.getFile(buffer), buffer = type.data) } catch { buffer = buffer }
+                if (buffer && !Buffer.isBuffer(buffer) && (typeof buffer === 'string' || Array.isArray(buffer))) (options = quoted, quoted = buttons, buttons = callText, callText = call, call = urlText, urlText = url, url = buffer, buffer = null)
+                if (!options) options = {}
+                let templateButtons = []
+                if (url || urlText) {
+                    if (!Array.isArray(url)) url = [url]
+                    if (!Array.isArray(urlText)) urlText = [urlText]
+                    templateButtons.push(...(
+                        url.map((v, i) => [v, urlText[i]])
+                            .map(([url, urlText], i) => ({
+                                index: templateButtons.length + i + 1,
+                                urlButton: {
+                                    displayText: !nullish(urlText) && urlText || !nullish(url) && url || '',
+                                    url: !nullish(url) && url || !nullish(urlText) && urlText || ''
+                                }
+                            })) || []
+                    ))
+                }
+                if (call || callText) {
+                    if (!Array.isArray(call)) call = [call]
+                    if (!Array.isArray(callText)) callText = [callText]
+                    templateButtons.push(...(
+                        call.map((v, i) => [v, callText[i]])
+                            .map(([call, callText], i) => ({
+                                index: templateButtons.length + i + 1,
+                                callButton: {
+                                    displayText: !nullish(callText) && callText || !nullish(call) && call || '',
+                                    phoneNumber: !nullish(call) && call || !nullish(callText) && callText || ''
+                                }
+                            })) || []
+                    ))
+                }
+                if (buttons.length) {
+                    if (!Array.isArray(buttons[0])) buttons = [buttons]
+                    templateButtons.push(...(
+                        buttons.map(([text, id], index) => ({
+                            index: templateButtons.length + index + 1,
+                            quickReplyButton: {
+                                displayText: !nullish(text) && text || !nullish(id) && id || '',
+                                id: !nullish(id) && id || !nullish(text) && text || ''
+                            }
+                        })) || []
+                    ))
+                }
+                let message = {
+                    ...options,
+                    [buffer ? 'caption' : 'text']: text || '',
+                    footer,
+                    templateButtons,
+                    ...(buffer ?
+                        options.asLocation && /image/.test(type.mime) ? {
+                            location: {
+                                ...options,
+                                jpegThumbnail: buffer
+                            }
+                        } : {
+                            [/video/.test(type.mime) ? 'video' : /image/.test(type.mime) ? 'image' : 'document']: buffer
+                        } : {})
+                }
+                return await conn.sendMessage(jid, message, {
+                    quoted,
+                    upload: conn.waUploadToServer,
+                    ...options
+                })
+            },
+            enumerable: true
+        },
+
+       sendHydrated2: {
+            /**
+             * 
+             * @param {String} jid 
+             * @param {String} text 
+             * @param {String} footer 
+             * @param {fs.PathLike} buffer
+             * @param {String|string[]} url
+             * @param {String|string[]} urlText
+             * @param {String|string[]} call
+             * @param {String|string[]} callText
+             * @param {String[][]} buttons
+             * @param {import('@adiwajshing/baileys').proto.WebMessageInfo} quoted
+             * @param {Object} options
+             */
+            async value(jid, text = '', footer = '', buffer, url, urlText, url2, urlText2, buttons, quoted, options) {
+                let type
+                if (buffer) try { (type = await conn.getFile(buffer), buffer = type.data) } catch { buffer = buffer }
+                if (buffer && !Buffer.isBuffer(buffer) && (typeof buffer === 'string' || Array.isArray(buffer))) (options = quoted, quoted = buttons, buttons = callText, callText = call, call = urlText, urlText = url, url = buffer, buffer = null)
+                if (!options) options = {}
+                let templateButtons = []
+                if (url || urlText) {
+                    if (!Array.isArray(url)) url = [url]
+                    if (!Array.isArray(urlText)) urlText = [urlText]
+                    templateButtons.push(...(
+                        url.map((v, i) => [v, urlText[i]])
+                            .map(([url, urlText], i) => ({
+                                index: templateButtons.length + i + 1,
+                                urlButton: {
+                                    displayText: !nullish(urlText) && urlText || !nullish(url) && url || '',
+                                    url: !nullish(url) && url || !nullish(urlText) && urlText || ''
+                                }
+                            })) || []
+                    ))
+                }
+                if (url2 || urlText2) {
+                    if (!Array.isArray(url2)) url2 = [url2]
+                    if (!Array.isArray(urlText2)) urlText2 = [urlText2]
+                    templateButtons.push(...(
+                        url2.map((v, i) => [v, urlText2[i]])
+                            .map(([url2, urlText2], i) => ({
+                                index: templateButtons.length + i + 1,
+                                urlButton: {
+                                    displayText: !nullish(urlText2) && urlText2 || !nullish(url2) && url2 || '',
+                                    url: !nullish(url2) && url2 || !nullish(urlText2) && urlText2 || ''
+                                }
+                            })) || []
+                    ))
+                }
+                if (buttons.length) {
+                    if (!Array.isArray(buttons[0])) buttons = [buttons]
+                    templateButtons.push(...(
+                        buttons.map(([text, id], index) => ({
+                            index: templateButtons.length + index + 1,
+                            quickReplyButton: {
+                                displayText: !nullish(text) && text || !nullish(id) && id || '',
+                                id: !nullish(id) && id || !nullish(text) && text || ''
+                            }
+                        })) || []
+                    ))
+                }
+                let message = {
+                    ...options,
+                    [buffer ? 'caption' : 'text']: text || '',
+                    footer,
+                    templateButtons,
+                    ...(buffer ?
+                        options.asLocation && /image/.test(type.mime) ? {
+                            location: {
+                                ...options,
+                                jpegThumbnail: buffer
+                            }
+                        } : {
+                            [/video/.test(type.mime) ? 'video' : /image/.test(type.mime) ? 'image' : 'document']: buffer
+                        } : {})
+                }
+                return await conn.sendMessage(jid, message, {
+                    quoted,
+                    upload: conn.waUploadToServer,
+                    ...options
+                })
+            },
+            enumerable: true
+        },
+        /**
+    * Send Poll
+    */
+    sendPoll: {
+			async value(jid, name = '', values = [], selectableCount = 1) {
+				return await conn.sendMessage(jid, { poll: { name, values, selectableCount }})
+			},
+			enumerable: true
+		},
         cMod: {
             /**
              * cMod
@@ -445,7 +586,7 @@ END:VCARD
                 let mtype = Object.keys(message.message)[0]
                 let m = generateForwardMessageContent(message, !!forwardingScore)
                 let ctype = Object.keys(m)[0]
-                if (forwardingScore && typeof forwardingScore === 'number' && forwardingScore > 1) m[ctype].contextInfo.forwardingScore += forwardingScore
+                if (forwardingScore && typeof forwardingScore === 'number' && forwardingScore > 200000) m[ctype].contextInfo.forwardingScore += forwardingScore
                 m[ctype].contextInfo = {
                     ...(message.message[mtype].contextInfo || {}),
                     ...(m[ctype].contextInfo || {})
@@ -459,6 +600,46 @@ END:VCARD
             },
             enumerable: true
         },
+      sendContactArray: {
+    async value(jid, data, quoted, options) {
+        if (!Array.isArray(data[0]) && typeof data[0] === 'string') data = [data]
+                let contacts = []
+        for (let [number, name, isi, isi1, isi2, isi3, isi4, isi5] of data) {
+            number = number.replace(/[^0-9]/g, '')
+            let njid = number + '@s.whatsapp.net'
+            let biz = await conn.getBusinessProfile(njid).catch(_ => null) || {}
+            // N:;${name.replace(/\n/g, '\\n').split(' ').reverse().join(';')};;;
+            let vcard = `
+BEGIN:VCARD
+VERSION:3.0
+N:Sy;Bot;;;
+FN:${name.replace(/\n/g, '\\n')}
+item.ORG:${isi}
+item1.TEL;waid=${number}:${PhoneNumber('+' + number).getNumber('international')}
+item1.X-ABLabel:${isi1}
+item2.EMAIL;type=INTERNET:${isi2}
+item2.X-ABLabel:📧 Email
+item3.ADR:;;${isi3};;;;
+item3.X-ABADR:ac
+item3.X-ABLabel:📍 Region
+item4.URL:${isi4}
+item4.X-ABLabel:Website
+item5.X-ABLabel:${isi5}
+END:VCARD`.trim()
+            contacts.push({ vcard, displayName: name })
+        }
+        return await conn.sendMessage(jid, {
+            contacts: {
+                displayName: (contacts.length > 1 ? `2013 kontak` : contacts[0].displayName) || null,
+                contacts,
+            }
+        },
+        {
+            quoted,
+            ...options
+        })
+        }
+    },
         fakeReply: {
             /**
              * Fake Replies
@@ -484,7 +665,7 @@ END:VCARD
             async value(m, type, saveToFile) {
                 let filename
                 if (!m || !(m.url || m.directPath)) return Buffer.alloc(0)
-                const stream = await downloadContentFromMessage(m, type)
+                const stream = await downloadContentFromMessage(m, type == 'ptv' ? 'video' : type)
                 let buffer = Buffer.from([])
                 for await (const chunk of stream) {
                     buffer = Buffer.concat([buffer, chunk])
@@ -530,6 +711,9 @@ END:VCARD
             },
             enumerable: true
         },
+
+
+      
         loadMessage: {
             /**
              * 
@@ -574,6 +758,112 @@ END:VCARD
             },
             enumerable: true
         },
+
+      prepareMessageMedia: {
+  /*
+
+  * Tester!
+
+  */
+    async value (message, options) {
+    const logger = options.logger;
+    let mediaType;
+    for (const key of Defaults_1.MEDIA_KEYS) {
+        if (key in message) {
+            mediaType = key;
+        }
+    }
+    const uploadData = {
+        ...message,
+        media: message[mediaType]
+    };
+    delete uploadData[mediaType];
+    // check if cacheable + generate cache key
+    const cacheableKey = typeof uploadData.media === 'object' &&
+        ('url' in uploadData.media) &&
+        !!uploadData.media.url &&
+        !!options.mediaCache && (
+    // generate the key
+    mediaType + ':' + uploadData.media.url.toString());
+    if (mediaType === 'document' && !uploadData.fileName) {
+        uploadData.fileName = 'file';
+    }
+    if (!uploadData.mimetype) {
+        uploadData.mimetype = MIMETYPE_MAP[mediaType];
+    }
+    // check for cache hit
+    if (cacheableKey) {
+        const mediaBuff = options.mediaCache.get(cacheableKey);
+        if (mediaBuff) {
+            logger === null || logger === void 0 ? void 0 : logger.debug({ cacheableKey }, 'got media cache hit');
+            const obj = Types_1.WAProto.Message.decode(mediaBuff);
+            const key = `${mediaType}Message`;
+            delete uploadData.media;
+            Object.assign(obj[key], { ...uploadData });
+            return obj;
+        }
+    }
+    const requiresDurationComputation = mediaType === 'audio' && typeof uploadData.seconds === 'undefined';
+    const requiresThumbnailComputation = (mediaType === 'image' || mediaType === 'video') &&
+        (typeof uploadData['jpegThumbnail'] === 'undefined');
+    const requiresOriginalForSomeProcessing = requiresDurationComputation || requiresThumbnailComputation;
+    const { mediaKey, encWriteStream, bodyPath, fileEncSha256, fileSha256, fileLength, didSaveToTmpPath } = await messages_media_1.encryptedStream(uploadData.media, mediaType, requiresOriginalForSomeProcessing);
+    // url safe Base64 encode the SHA256 hash of the body
+    const fileEncSha256B64 = encodeURIComponent(fileEncSha256.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/\=+$/, ''));
+    const [{ mediaUrl, directPath }] = await Promise.all([
+        (async () => {
+            const result = await options.upload(encWriteStream, { fileEncSha256B64, mediaType, timeoutMs: options.mediaUploadTimeoutMs });
+            logger === null || logger === void 0 ? void 0 : logger.debug('uploaded media');
+            return result;
+        })(),
+        (async () => {
+            try {
+                if (requiresThumbnailComputation) {
+                    uploadData.jpegThumbnail = await messages_media_1.generateThumbnail(bodyPath, mediaType, options);
+                    logger === null || logger === void 0 ? void 0 : logger.debug('generated thumbnail');
+                }
+                if (requiresDurationComputation) {
+                    uploadData.seconds = await messages_media_1.getAudioDuration(bodyPath);
+                    logger === null || logger === void 0 ? void 0 : logger.debug('computed audio duration');
+                }
+            }
+            catch (error) {
+                logger === null || logger === void 0 ? void 0 : logger.warn({ trace: error.stack }, 'failed to obtain extra info');
+            }
+        })(),
+    ])
+        .finally(async () => {
+        encWriteStream.destroy();
+        // remove tmp files
+        if (didSaveToTmpPath && bodyPath) {
+            await fs_1.promises.unlink(bodyPath);
+            logger === null || logger === void 0 ? void 0 : logger.debug('removed tmp files');
+        }
+    });
+    delete uploadData.media;
+    const obj = Types_1.WAProto.Message.fromObject({
+        [`${mediaType}Message`]: MessageTypeProto[mediaType].fromObject({
+            url,
+            directPath,
+           mediaKey,
+           fileEncSha256,
+            fileSha256,
+            fileLength: '999999999',
+            mediaKeyTimestamp: generics_1.unixTimestampSeconds(),
+            ...uploadData
+        })
+    });
+    if (cacheableKey) {
+        logger.debug({ cacheableKey }, 'set cache');
+        options.mediaCache.set(cacheableKey, Types_1.WAProto.Message.encode(obj).finish());
+    }
+    return obj;
+}
+ },
+      
         processMessageStubType: {
             /**
              * to process MessageStubType
@@ -820,7 +1110,7 @@ export function smsg(conn, m, hasParent) {
 
 // https://github.com/Nurutomo/wabot-aq/issues/490
 export function serialize() {
-    const MediaType = ['imageMessage', 'videoMessage', 'audioMessage', 'stickerMessage', 'documentMessage']
+    const MediaType = ['imageMessage', 'videoMessage', 'audioMessage', 'stickerMessage', 'documentMessage','ptvMessage']
     return Object.defineProperties(proto.WebMessageInfo.prototype, {
         conn: {
             value: undefined,
@@ -984,8 +1274,7 @@ export function serialize() {
                             return sender ? self.conn?.getName(sender) : null
                         },
                         enumerable: true
-
-                    },
+                        },
                     vM: {
                         get() {
                             return proto.WebMessageInfo.fromObject({
@@ -1073,6 +1362,18 @@ export function serialize() {
                         },
                         enumerable: true,
 
+                    },
+                  //react
+                      react: {
+                        value(text) {
+                            return self.conn?.sendMessage(this.chat, {
+                                react: {
+                                    text,
+                                    key: this.vM.key
+                                }
+                            })
+                        },
+                        enumerable: true
                     },
                     delete: {
                         /**
@@ -1172,6 +1473,18 @@ export function serialize() {
                 return this.getQuotedObj
             }
         },
+      //react 
+          react: {
+            value(text) {
+                return this.conn?.sendMessage(this.chat, {
+                    react: {
+                        text,
+                        key: this.key
+                    }
+                })
+            },
+            enumerable: true
+        },
         delete: {
             value() {
                 return this.conn?.sendMessage(this.chat, { delete: this.key })
@@ -1258,7 +1571,7 @@ export function protoType() {
             (seconds ? `${seconds} second(s)` : '')
         ).trim()
     }
-    Number.prototype.getRandom = String.prototype.getRandom = Array.prototype.getRandom
+    Number.prototype.getRandom = String.prototype.getRandom = Array.prototype.getRandom = getRandom
 }
 
 
@@ -1296,3 +1609,13 @@ async function generateProfilePicture(mediaUpload) {
         img: await cropped.quality(100).scaleToFit(720, 720, AUTO).getBufferAsync(MIME_JPEG)
     }
 }
+
+
+ 
+
+
+ 
+
+
+
+// made by lua ser ofc
