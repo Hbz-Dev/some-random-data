@@ -253,7 +253,8 @@ export {
   sticker1,
   sticker2,
   sticker3,
-  sticker4, sticker5,
+  sticker4, 
+  sticker5,
   sticker6,
   addExif,
   support
