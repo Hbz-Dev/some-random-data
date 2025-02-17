@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<title>Coryn Club - Toram Online Database & Tools</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="keywords" content="Coryn Club, Toram Online, Game Guide, MMORPG, Android Game, iOS Game, Asobimo, Toram Online Database,
+		Drop List, Monster List, Equipment List, Stat Calculator, Skill Simulator, Combo Simulator, Statting Formula, Leveling Guide" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700|Six+Caps' rel='stylesheet' type='text/css' />
+	<script src="js/jquery.min.js"></script>
+
+
+	<!-- GOOGLE ANALYTICS JS -->
+	<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-85513259-1', 'auto');
+		  ga('send', 'pageview');
+	</script>
+	<!-- END OF GOOGLE ANALYTICS JS -->
+
+</head>
+<body>
+	<style>
+		small{
+			color:SlateBlue;
+		}
+	</style>
+
+		<!--header-top-starts-->
+    <div id="navbar" style="grid-template-columns: 1fr 1fr" class="grid animated fadeInDown">
+		<!-- LEFT GRID -->
+        <div id="navbar-main">
+			<div id="navbar-logo"><img src="images/cc_logo.gif"></div>
+			<div id="navbar-title">
+				<a href="index.php">Coryn Club</a>
+			</div>
+        </div>
+
+		<!-- RIGHT GRID -->
+        <div style="display:flex; justify-content:flex-end; align-items:center;">
+			<div class="ml-5 mr-5">
+				<img id="language_container" width="28" height="28" src="images/lang.png">
+				<ul class="language-menu" >
+					<li><a href="http://coryn.club">English</a></li>
+					<li><a href="http://jp.coryn.club">Japanese</a></li>
+					<li><a href="http://indo.coryn.club">Bahasa Indonesia</a></li>
+					<li><a href="http://thai.coryn.club">Thai</a></li>
+					<li><a href="http://trachn.coryn.club">Traditional Chinese</a></li>
+					<li><a href="http://simchn.coryn.club">Simplified Chinese</a></li>
+					<li><a href="http://kr.coryn.club">Korean</a></li>
+				</ul>
+			</div>
+
+            <a href="index.php#index-login"><img class="ml-5 mr-5" src="images/login.png" alt="Sign In" title="Sign In/Register"></a>        </div><!-- END OF RIGHT GRID -->
+	</div><!-- END OF NAVBAR -->
+
+	<div id="wrapper">
+	<!-- script-for-menu -->
+	<script>
+		$(document).ready(function() {
+			$("body").click(function() {
+				$(".username-menu").removeClass('active');
+				$(".language-menu").removeClass('active');
+			});
+		});
+	</script>
+	    <div id="sidebar" class="animated fadeInLeft fast">
+        <div id="sidebar-content">
+            <div class="sidebar-content-item-wrapper">
+                <div id="main-menu" class="sidebar-content-item active" data-target="tab-1" style="height:100%; display:flex; flex-direction:column; justify-content:space-between">
+                    <div class="all-menu"> <!-- all menu stays on top -->
+						<p class="sidebar-tab-item-title">Menu</p>
+<ul class="menu-root">
+	<li><a class="nested" href="javascript: void(1);">Item</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="item.php">All</a></li>
+				<li><a href="item.php?special=dye&order=type">Dye</a></li>
+				<li><a href="item.php?type=1&order=name">Usable</a></li>
+				<li><a href="registlet.php">Registlet</a></li>
+				<li><a class="nested" href="javascript: void(1);">Crysta</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="item.php?special=xtal">All</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=20">Normal</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=21">Weapon</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=22">Armor</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=23">Additional</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=24">Special</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nested" href="javascript: void(1);">Material</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="material.php?proc=1">Beast</a></li>
+							<li><a href="material.php?proc=2">Wood</a></li>
+							<li><a href="material.php?proc=3">Metal</a></li>
+							<li><a href="material.php?proc=4">Cloth</a></li>
+							<li><a href="material.php?proc=5">Medicine</a></li>
+							<li><a href="material.php?proc=6">Mana</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Equipment</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="item.php?special=eq">All</a></li>
+				<li><a href="item.php?type=4&order=atk%20ASC,name">1-Handed Sword</a></li>
+				<li><a href="item.php?type=5&order=atk%20ASC,name">2-Handed Sword</a></li>
+				<li><a href="item.php?type=9&order=atk%20ASC,name">Bow</a></li>
+				<li><a href="item.php?type=10&order=atk%20ASC,name">Bowgun</a></li>
+				<li><a href="item.php?type=13&order=atk%20ASC,name">Knuckles</a></li>
+				<li><a href="item.php?type=15&order=atk%20ASC,name">Magic Device</a></li>
+				<li><a href="item.php?type=19&order=atk%20ASC,name">Staff</a></li>
+				<li><a href="item.php?type=26&order=atk%20ASC,name">Halberd</a></li>
+				<li><a href="item.php?type=27&order=atk%20ASC,name">Katana</a></li>
+				<li><a href="item.php?type=11&order=atk%20ASC,name">Dagger</a></li>
+				<li><a href="item.php?type=7&order=atk%20ASC,name">Arrow</a></li>
+				<li><a href="item.php?type=17&order=def%20ASC,name">Shield</a></li>
+				<li><a href="item.php?type=28&order=id,name">Ninjutsu Scroll</a></li>
+				<li><a href="item.php?type=8&order=def%20ASC,name">Armor</a></li>
+				<li><a href="item.php?type=6&order=def%20ASC,name">Additional</a></li>
+				<li><a href="item.php?type=18&order=def%20ASC,name">Special</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Monster</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="monster.php">All</a></li>
+				<li><a href="monster.php?type=N&order=level">Normal</a></li>
+				<li><a href="monster.php?type=M&order=level">Mini Boss</a></li>
+				<li><a href="monster.php?type=B&order=level">Boss</a></li>
+				<li><a class="nested" href="javascript: void(1);">Pet/Tamable</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="monster_tameable.php?ele=0">Neutral</a></li>
+							<li><a href="monster_tameable.php?ele=1">Fire</a></li>
+							<li><a href="monster_tameable.php?ele=2">Water</a></li>
+							<li><a href="monster_tameable.php?ele=3">Wind</a></li>
+							<li><a href="monster_tameable.php?ele=4">Earth</a></li>
+							<li><a href="monster_tameable.php?ele=5">Dark</a></li>
+							<li><a href="monster_tameable.php?ele=6">Light</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nested" href="javascript: void(1);">Element</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="monster_element.php?ele=0">Neutral</a></li>
+							<li><a href="monster_element.php?ele=1">Fire</a></li>
+							<li><a href="monster_element.php?ele=2">Water</a></li>
+							<li><a href="monster_element.php?ele=3">Wind</a></li>
+							<li><a href="monster_element.php?ele=4">Earth</a></li>
+							<li><a href="monster_element.php?ele=5">Dark</a></li>
+							<li><a href="monster_element.php?ele=6">Light</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Quest</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="quest.php">All</a></li>
+				<li><a class="nested" href="javascript: void(1);">Sofya</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="quest.php?npc=253">Yunis</a></li>
+							<li><a href="quest.php?npc=256">Frente</a></li>
+							<li><a href="quest.php?npc=258">Zono</a></li>
+							<li><a href="quest.php?npc=259">Forf</a></li>
+							<li><a href="quest.php?npc=260">Lefina</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nested" href="javascript: void(1);">El Scaro</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="quest.php?npc=391">Potolo</a></li>
+							<li><a href="quest.php?npc=392">Juan</a></li>
+							<li><a href="quest.php?npc=398">Filecia</a></li>
+							<li><a href="quest.php?npc=394">Rina</a></li>
+							<li><a href="quest.php?npc=393">Ravagne</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="quest.php?npc=296">Rugio Ruins - Moralo</a></li>
+				<li>
+					<a class="nested" href="javascript: void(1);">Garden of Beginning</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="quest.php?npc=1737">Noble's Spirit</a></li>
+							<li><a href="quest.php?npc=1738">Researcher's Spirit</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Other DB</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="map.php">Map</a></li>
+				<li><a href="skill_menu.php">Skill</a></li>
+				<li><a href="furniture_menu.php">Housing</a></li>
+				<li><a href="food.php">Food Buff</a></li>
+				<li><a href="https://www.facebook.com/pg/corynclub/photos/?tab=album&album_id=686599141510648">Pet Dye</a></li>
+				<li><a href="emblem.php">Emblem</a></li>
+				<li>
+					<a class="nested" href="javascript: void(1);">Craft</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="item.php?special=psmith&order=level">Player Smith</a></li>
+							<li><a href="item.php?special=nsmith&order=type,level">NPC Smith</a></li>
+							<li><a href="item.php?special=palch&order=level">Player Alchemist</a></li>
+							<li><a href="item.php?special=nalch&order=type,level">NPC Alchemist</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Guide</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="guide.php?key=beginner">Beginner Guide</a></li>
+				<li><a href="guide.php?key=petguide">Pet Guide</a></li>
+				<li><a href="guide.php?key=smith">Smithing Guide</a></li>
+				<li><a href="guide.php?key=status">Status & Damage Calculation Guide</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">App Showcase</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href='app_showcase.php?type=8'>Armor</a></li>
+				<li><a href='app_showcase.php?type=6'>Additional Gear</a></li>
+				<li><a href='app_showcase.php?type=17'>Shield</a></li>
+				<li><a href='app_showcase.php?type=4'>1 Handed Sword</a></li>
+				<li><a href='app_showcase.php?type=5'>2 Handed Sword</a></li></li>
+				<li><a href='app_showcase.php?type=9'>Bow</a></li>
+				<li><a href='app_showcase.php?type=10'>Bowgun</a></li>
+				<li><a href='app_showcase.php?type=13'>Knuckles</a></li>
+				<li><a href='app_showcase.php?type=15'>Magic Device</a></li>
+				<li><a href='app_showcase.php?type=19'>Staff</a></li>
+				<li><a href='app_showcase.php?type=26'>Halberd</a></li>
+				<li><a href='app_showcase.php?type=27'>Katana</a>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Tools</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a class="nested" href="javascript: void(1);">Calculator</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="stat_calculator.php">Stat Calculator</a></li>
+							<li><a href="pet_calculator.php">Pet Stat Calculator</a></li>
+							<li><a href="quest_calculator.php">Quest Calculator</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nested" href="javascript: void(1);">Simulator</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="statting_simulator.php">Statting Simulator</a></li>
+							<li><a href="skill_simulator.php">Skill Simulator</a></li>
+							<li><a href="combo_simulator.php">Combo Simulator</a></li>
+							<li><a href="app_simulator.php">App Synth Simulator</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="leveling.php">Character Leveling</a></li>
+				<li><a href="pet_leveling.php">Pet Leveling</a></li>
+				<li><a href="pet_fusion_optimizer.php">Pet Fusion Optimizer</a></li>
+				<li><a href="formula.php">Statting Formula List</a></li>
+				<li><a href="formula_search.php">Statting Formula Search</a></li>
+				<li><a href="dye_finder.php">Dye Finder</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a href="/forum/">Forum</a></li>
+	<li><a href="credits.php">Credits</a></li>
+	</ul>
+<p class="sidebar-tab-item-title">Search</p>
+<form class="input-search" action="leveling.php">
+  <input type="text" name="lv" placeholder="Your Level">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="monster.php">
+  <input type="text" name="name" placeholder="Monster Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="map.php">
+  <input type="text" name="name" placeholder="Map Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="item.php">
+  <input type="text" name="name" placeholder="Item Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="furniture.php">
+  <input type="text" name="name" placeholder="Furniture Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<button class="adv-search-button" onclick="window.location.href = 'itemsearch.php';">Advanced Item Search</button>
+
+					</div> <!-- end of menus -->
+
+                    <div>
+					     <p style="font-family: Arial; font-size:13px; font-style:italic; color:#999;">Coryn Club - Toram Online Database is ©Cruithne. Toram Online is ©Asobimo, Inc. All Rights Reserved. </p>
+                	</div>
+                </div>
+            </div>
+
+            <div class="sidebar-content-item-wrapper">
+                <div class="sidebar-content-item " data-target="tab-2">
+					                    <!-- SAMPLE -->
+                    <!--<p class="sidebar-tab-item-title" style="border: 1px solid green; display:block">Guide Content</p>
+					<ul class="menu-root">
+						<li><a class="nested" href="#">Item</a>
+						<li><a class="nested" href="#">Item</a>
+					</ul>-->
+                </div>
+            </div>
+        </div>
+        <div id="sidebar-tab">
+            <div class="sidebar-tab-item active" data-target="tab-1" title="Menu">
+                <i class="fas fa-bars fa-lg"></i>
+            </div>
+            <div class="sidebar-tab-item " data-target="tab-2" title="Extra" style="display:none">
+                <i class="fas fa-book fa-lg"></i>
+            </div>
+            <div class="sidebar-tab-item back-to-top" title="Back To Top">
+                <i class="fas fa-chevron-up fa-lg"></i>
+            </div>
+            <div id="scrollbox" style="flex:1 0 100px;">
+            </div>
+        </div>
+    </div>
+
+	<!-- content -->
+	<div id="content">
+		<center>
+		<div>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Coryn Club (responsive) -->
+		<ins class="adsbygoogle adsense-top"
+		     style="display:inline-block;"
+		     data-ad-client="ca-pub-6728336374001187"
+		     data-ad-slot="4531457552"
+		     data-full-width-responsive="false"></ins>
+		<script>
+		     (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</div>
+		</center>
+	    <p class="content-title">Custom Search</p>
+    <form action="leveling.php">
+      <div class="form inline">
+        <div>
+          <p class="accent-bold">Level</p>
+          <input type="number" name="lv" value="3" min="1" max="999">
+        </div>
+        <div>
+          <p class="accent-bold">Range</p>
+          <input type="number" name="gap" value="10" min="0" max="10">
+        </div>
+        <div>
+		  <p class="accent-bold">EXP Bonus</p>
+		  <input type="number" name="bonusEXP" value="20" min="0" max="2000">
+        </div>
+        <div>
+          <p class="accent-bold">Limited monster</p>
+          <input type="checkbox" name="limited" value="1" > Yes
+        </div>
+        <div>
+          <p class="accent-bold">Exclude</p>
+          <input type="checkbox" name="hard" value="1" > Hard
+          <input type="checkbox" name="night" value="1" > Nightmare
+          <input type="checkbox" name="ulti" value="1" > Ultimate
+        </div>
+      </div>
+      <input class="button" type="submit" value="Search" style="padding: 10px 15px; width:250px">
+    </form>
+	<p>
+		<details>
+			<summary>Emblem & 30-Days Ticket EXP Bonus List</summary>
+			<b>Daily Emblems)</b><br>
+			Play 30 mins - 10%<br>
+			Play 60 mins - 10%<br>
+			Kill 30 monster within 30 levels - 10%<br>
+			Kill 60 monster within 20 levels - 10%<br>
+			Kill 90 monster within 10 levels - 10%<br>
+			<b>Player Level</b><br>
+			Reached Lv 30 - 10% if < lv 30<br>
+			Reached Lv 60 - 11% if < lv 60<br>
+			Reached Lv 90 - 12% if < lv 90<br>
+			Reached Lv 120 - 13% if < lv 120<br>
+			Reached Lv 150 - 14% if < lv 150<br>
+			Reached Lv 180 - 15% if < lv 180<br>
+			Reached Lv 210 - 16% if < lv 210<br>
+			Reached Lv 240 - 17% if < lv 240<br>
+			Reached Lv 270 - 18% if < lv 270<br>
+			<b>30-Days Ticket</b><br>
+			Standard Ticket - 50%<br>
+			Leveling Ticket - 100%<br>
+		</details>
+	</p>
+	<p>&nbsp;</p>
+	<hr>
+
+    <p class="content-title">EXP List for Level 3</p>
+    <p class="content-subtitle"><i>8 EXP required</i></p>
+          <div class="table-grid item-leveling">
+        <div>
+          <h3>
+            Boss
+          </h3>
+        </div>
+                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=665'>Gespenst (Easy)</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>518 EXP</b> <i>(full break)</i> <small>&#9733; 6480%</small></p>
+
+										  					  <p>389<i>EXP (1 break)</i> <small>&#9733; 4860%</small></p>
+										  					  <p>259<i>EXP (0 break)</i> <small>&#9733; 3240%</small></p>
+									  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 6</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=650'>Excavated Golem (Easy)</a></b></p>
+				  <p>Underground Ruins: Deepest Part</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>238 EXP</b> <i>(full break)</i> <small>&#9733; 2970%</small></p>
+
+										  					  <p>198<i>EXP (2 break)</i> <small>&#9733; 2475%</small></p>
+										  					  <p>158<i>EXP (1 break)</i> <small>&#9733; 1980%</small></p>
+										  					  <p>119<i>EXP (0 break)</i> <small>&#9733; 1485%</small></p>
+									  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 4</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=646'>Boss Colon (Easy)</a></b></p>
+				  <p>Land Under Development</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		              </div>
+    
+    <div style="width:100%; background:white;">
+    		<div>
+		<center>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Coryn Club (responsive) -->
+				<ins class="adsbygoogle adsense-material"
+					 style="display:inline-block;"
+					 data-ad-client="ca-pub-6728336374001187"
+					 data-ad-slot="4531457552"
+					 data-full-width-responsive="false"></ins>
+				<script>
+					 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</center>
+		</div>
+		</div>
+
+    
+          <div class="table-grid item-leveling">
+        <div>
+          <h3>
+            Normal monsters
+          </h3>
+        </div>
+                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=75'>Blue Jelly (big)</a></b></p>
+				  <p>Debacky Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>464 EXP</b> <small>&#9733; 5805%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 8</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=74'>Blue Jelly (small)</a></b></p>
+				  <p>Debacky Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>185 EXP</b> <small>&#9733; 2310%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 8</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=60'>Blue Jelly (big)</a></b></p>
+				  <p>Debakcy Channel: B1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>185 EXP</b> <small>&#9733; 2310%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 8</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=66'>Blue Jelly (big)</a></b></p>
+				  <p>Debakcy Channel: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>185 EXP</b> <small>&#9733; 2310%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 7</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=56'>Blue Jelly (big)</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>158 EXP</b> <small>&#9733; 1980%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 5</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=55'>Blue Jelly (small)</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>132 EXP</b> <small>&#9733; 1650%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=61'>Ruin Rat</a></b></p>
+				  <p>Debakcy Channel: B1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>120 EXP</b> <small>&#9733; 1500%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 7</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=58'>Ghost</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>106 EXP</b> <small>&#9733; 1320%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=9'>Ruin Rat</a></b></p>
+				  <p>Underground Ruins: B1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>97 EXP</b> <small>&#9733; 1215%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=13'>Torpo</a></b></p>
+				  <p>Underground Ruins: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>97 EXP</b> <small>&#9733; 1215%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=64'>Corda</a></b></p>
+				  <p>Debakcy Channel: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>96 EXP</b> <small>&#9733; 1200%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=10'>Torpo</a></b></p>
+				  <p>Underground Ruins: B1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>84 EXP</b> <small>&#9733; 1050%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 4</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=57'>Ghost</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>79 EXP</b> <small>&#9733; 990%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 6</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=23'>Piedra</a></b></p>
+				  <p>Reug Salt Plains: Wanderers Camp</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>79 EXP</b> <small>&#9733; 990%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 8</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=8'>Torpo</a></b></p>
+				  <p>Underground Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>79 EXP</b> <small>&#9733; 990%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 8</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=7'>Ruin Rat</a></b></p>
+				  <p>Underground Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>79 EXP</b> <small>&#9733; 990%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=65'>Corda</a></b></p>
+				  <p>Debakcy Channel: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>76 EXP</b> <small>&#9733; 945%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=27'>Night Mushroom</a></b></p>
+				  <p>Reug Salt Plains: Wanderers Camp</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>76 EXP</b> <small>&#9733; 945%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=14'>Nemico</a></b></p>
+				  <p>Underground Ruins: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>76 EXP</b> <small>&#9733; 945%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=82'>Helm Colon</a></b></p>
+				  <p>Strum Road</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>76 EXP</b> <small>&#9733; 945%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=11'>Nemico</a></b></p>
+				  <p>Underground Ruins: B1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>76 EXP</b> <small>&#9733; 945%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 6</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=54'>Corda</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>66 EXP</b> <small>&#9733; 825%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 7</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=24'>Pomum</a></b></p>
+				  <p>Reug Salt Plains: Wanderers Camp</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>66 EXP</b> <small>&#9733; 825%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=69'>Vanilla Potum</a></b></p>
+				  <p>Athema Ruins: Area 1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>65 EXP</b> <small>&#9733; 810%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=67'>Kijimu</a></b></p>
+				  <p>Athema Ruins: Area 1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>65 EXP</b> <small>&#9733; 810%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=110'>Raffy</a></b></p>
+				  <p>Suedor Cliff</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>65 EXP</b> <small>&#9733; 810%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 10</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=660'>Raffy</a></b></p>
+				  <p>Ruined Temple Town</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>65 EXP</b> <small>&#9733; 810%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=80'>Colon</a></b></p>
+				  <p>Strum Road</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>60 EXP</b> <small>&#9733; 750%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=26'>Wooly</a></b></p>
+				  <p>Reug Salt Plains: Wanderers Camp</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>60 EXP</b> <small>&#9733; 750%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=37'>Raffy</a></b></p>
+				  <p>Ruined Temple Town</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>60 EXP</b> <small>&#9733; 750%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 9</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=109'>Colon</a></b></p>
+				  <p>Suedor Cliff</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>60 EXP</b> <small>&#9733; 750%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 7</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=1'>Torpo</a></b></p>
+				  <p>Land Under Development</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>53 EXP</b> <small>&#9733; 660%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 8</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=25'>Wooly</a></b></p>
+				  <p>Reug Salt Plains: Wanderers Camp</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>53 EXP</b> <small>&#9733; 660%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=81'>Colon</a></b></p>
+				  <p>Strum Road</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>50 EXP</b> <small>&#9733; 630%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=72'>Rio Frosch</a></b></p>
+				  <p>Athema Ruins: Area 2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>50 EXP</b> <small>&#9733; 630%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=40'>Beak</a></b></p>
+				  <p>Ruined Temple Town</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>50 EXP</b> <small>&#9733; 630%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 11</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=111'>Kijimu</a></b></p>
+				  <p>Suedor Cliff</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>50 EXP</b> <small>&#9733; 630%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=92'>Cobre</a></b></p>
+				  <p>Icule Lake</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>47 EXP</b> <small>&#9733; 585%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 6</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=3'>Colon</a></b></p>
+				  <p>Land Under Development</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 5</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=536'>Raffy</a></b></p>
+				  <p>Rugio Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 5</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=5'>Shell Mask</a></b></p>
+				  <p>Land Under Development</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 5</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=79'>Colon</a></b></p>
+				  <p>Rugio Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=76'>Corda</a></b></p>
+				  <p>Debacky Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 4</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=53'>Corda</a></b></p>
+				  <p>Underground Channel</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=63'>Corda</a></b></p>
+				  <p>Debakcy Channel: B1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 3</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=22'>Piedra</a></b></p>
+				  <p>Rakau Plains</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 3</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=21'>Pomum</a></b></p>
+				  <p>Rakau Plains</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>40 EXP</b> <small>&#9733; 495%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=12'>Ruin Rat</a></b></p>
+				  <p>Underground Ruins: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>36 EXP</b> <small>&#9733; 450%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 3</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=535'>Raffy</a></b></p>
+				  <p>Rugio Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>26 EXP</b> <small>&#9733; 330%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 4</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=2'>Colon</a></b></p>
+				  <p>Land Under Development</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>26 EXP</b> <small>&#9733; 330%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 4</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=4'>Shell Mask</a></b></p>
+				  <p>Land Under Development</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>26 EXP</b> <small>&#9733; 330%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 1</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=20'>Pico</a></b></p>
+				  <p>Rakau Plains</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>26 EXP</b> <small>&#9733; 330%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 3</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=78'>Colon</a></b></p>
+				  <p>Rugio Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>26 EXP</b> <small>&#9733; 330%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=705'>Raffy</a></b></p>
+				  <p>Suedor Cliff</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>25 EXP</b> <small>&#9733; 315%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=85'>Kijimu</a></b></p>
+				  <p>Strum Road</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>25 EXP</b> <small>&#9733; 315%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 12</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=41'>Beak</a></b></p>
+				  <p>Ruined Temple Town</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>25 EXP</b> <small>&#9733; 315%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=30'>Night Mushroom</a></b></p>
+				  <p>Isthmus Of Kaus</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>18 EXP</b> <small>&#9733; 225%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=28'>Hound</a></b></p>
+				  <p>Isthmus Of Kaus</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>17 EXP</b> <small>&#9733; 210%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 2</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=18'>Raffy</a></b></p>
+				  <p>Rakau Plains</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>13 EXP</b> <small>&#9733; 165%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 1</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=17'>Raffy</a></b></p>
+				  <p>Rakau Plains</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>13 EXP</b> <small>&#9733; 165%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 1</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=77'>Colon</a></b></p>
+				  <p>Rugio Ruins</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>13 EXP</b> <small>&#9733; 165%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=15'>Nemico</a></b></p>
+				  <p>Underground Ruins: B2</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>12 EXP</b> <small>&#9733; 150%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=83'>Helm Colon</a></b></p>
+				  <p>Strum Road</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>12 EXP</b> <small>&#9733; 150%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=39'>Farfara</a></b></p>
+				  <p>Ruined Temple Town</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>10 EXP</b> <small>&#9733; 120%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=112'>Kijimu</a></b></p>
+				  <p>Suedor Cliff</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>8 EXP</b> <small>&#9733; 105%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=68'>Kijimu</a></b></p>
+				  <p>Athema Ruins: Area 1</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>8 EXP</b> <small>&#9733; 105%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 13</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=93'>Frosch</a></b></p>
+				  <p>Icule Lake</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>8 EXP</b> <small>&#9733; 105%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=2200'>Suspicious Old Box</a></b></p>
+				  <p>-</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=2201'>Red Steel Box</a></b></p>
+				  <p>-</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=2202'>Golden Casket</a></b></p>
+				  <p>-</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=2203'>Dirty Antique</a></b></p>
+				  <p>-</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=2204'>Rainy Season Event</a></b></p>
+				  <p>Event</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=3197'>Water City Jewel Box</a></b></p>
+				  <p>-</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		                  		  <div>
+			<div class="level-row">
+				<div class="level-col-1">
+				  <b>Lv 0</b>
+				</div>
+				<div class="level-col-2">
+				  <p><b><a href='monster.php?id=3199'>Sunken Treasure</a></b></p>
+				  <p>-</p>
+				</div>
+
+				<div class="level-col-3">
+				  					<p><b>0 EXP</b> <small>&#9733; 0%</small></p>
+				  				</div>
+			</div>
+		  </div>
+		              </div>
+    	</div>
+	<!-- content ends -->
+		</div> <!-- END OF CONTENT WRAPPER -->
+
+	<script src="js/sohacky.js"></script>
+    <script>
+        /* Top nav */
+        $("#username_container").click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(".username-menu").toggleClass('active');
+            $("#username_chevron_up").toggleClass('active');
+            $("#username_chevron_down").toggleClass('active');
+        })
+        $("#language_container").click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$(".language-menu").toggleClass('active');
+			$("#language_chevron_up").toggleClass('active');
+			$("#language_chevron_down").toggleClass('active');
+        })
+
+        /* Sidebar */
+        if ($(window).width() <= 950) {
+            $("#sidebar").removeClass('animated fadeInLeft fast');
+            $(".sidebar-content-item").removeClass('active');;
+            $(".sidebar-tab-item").removeClass('active');;
+        }
+
+        $('.sidebar-tab-item').on('click',function(ev){
+            const target = ev.currentTarget.dataset.target;
+            if(!target){
+                return;
+            }
+            if ($(window).width() <= 950) {
+                if(!ev.currentTarget.classList.contains('active') && !$("#sidebar").hasClass('active')){
+                    $("#sidebar").addClass('active')
+                }else if(ev.currentTarget.classList.contains('active')){
+                    $(".sidebar-content-item").removeClass('active');;
+                    $(".sidebar-tab-item").removeClass('active');;
+                    $("#sidebar").removeClass('active');
+                    return;
+                }
+            }
+            $(`.sidebar-content-item[data-target!="${target}"]`).removeClass('active');;
+            $(`.sidebar-content-item[data-target="${target}"]`).addClass('active');
+
+            $(`.sidebar-tab-item[data-target!="${target}"]`).removeClass('active');;
+            $(`.sidebar-tab-item[data-target="${target}"]`).addClass('active');
+        });
+
+        $('.back-to-top').on('click',(ev) => {
+            ev.preventDefault();
+            var $anchor = $(this);
+            $('#content').stop().animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        /* Sidebar Menu */
+        $('ul.menu-root a.nested').click(function(e){
+            if(e.target.tagName === 'A'){
+                $(this).toggleClass('expanded');
+                $(this).siblings('div.submenu').toggleClass('collapse');
+            }
+        })
+
+        /* Pagination JS */
+        $('body').on('click','.pagination-js-btn', (e) => {
+            let pagebtn = $(e.currentTarget);
+            let list = $(pagebtn.parent().data('target'));
+            let pagenumber = parseInt(pagebtn.data('page-number'));
+            changePage($(list),pagenumber);
+        })
+        function changePage(list,pagenumber){
+            let disp = list.data('display');
+            let accord = list.data('accord');
+            let listitems = list.children('.pagination-js-items').children();
+            let total = listitems.length;
+            let perpage = list.data('perpage');
+            let totalpage = Math.ceil(total / perpage);
+            let currentpage = list.data('current-page');
+            let pagination = $('[data-target="#' + list.attr('id') + '"].pagination-js-btngroup');
+            let pstart = pagenumber;
+            let numbtn = 3;
+            let offset = Math.floor(numbtn / 2);
+            if(pagenumber <= 0 || pagenumber > totalpage){
+                return;
+            }
+            list.data('current-page',pagenumber);
+            pstart -= offset;
+             if(pstart < 1){
+                pstart = 1;
+            }else if(pstart + numbtn > totalpage){
+                pstart = totalpage - (numbtn - 1)
+                if(pstart < 1) pstart = 1;
+            }
+            pagination.html('');
+            let prev = pagenumber - 1;
+            let next = pagenumber + 1;
+            let active = false;
+            listitems.each((idx,elem) => {
+                let num = idx + 1;
+                if(num <= pagenumber * perpage && num >= (pagenumber * perpage) - (perpage - 1) ){
+                    $(elem).css('display',disp);
+                }else{
+                    $(elem).css('display','none');
+                }
+            });
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${1}"><i class="fas fa-angle-double-left"></i></a>`);
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${prev}"><i class="fas fa-angle-left"></i></a>`);
+            for(let i  = pstart, j = 0;j < numbtn && i <= totalpage;i++,j++){
+                if(i === pagenumber){
+                    active = true;
+                }else{
+                    active = false;
+                }
+                pagination.append(`<a href="#" class="pagination-js-btn ${(active)?'active':''}" data-page-number="${i}">${i}</a>`);
+            }
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${next}"><i class="fas fa-angle-right"></i></a>`);
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${totalpage}"><i class="fas fa-angle-double-right"></a>`);
+            if(totalpage < 2){
+                pagination.css('display','none');
+            }
+
+            //fix height if inside accordion
+            if(typeof accord !== 'undefined' && $(accord).get(0).style.maxHeight!=0)
+            		$(accord).get(0).style.maxHeight = $(accord).get(0).scrollHeight + 30 + "px";
+
+        }
+
+        /* Accordion */
+        $('body').on('click','ul.accordion > li > div:first-child',accordionOnClick);
+        function accordionOnClick(e){
+            const item = $(e.currentTarget).parent();
+            const accordion = item.parent();
+            const content = item.children('div:nth-child(2)');
+            const aItem = item.siblings('.active');
+            const aContent = aItem.children('div:nth-child(2)');
+            if(item.hasClass('active')){
+                content.get(0).style.maxHeight = 0;
+            }else{
+                content.get(0).style.maxHeight = content.get(0).scrollHeight + 30 + "px";
+            }
+
+            if(aItem.length > 0){
+                aContent.get(0).style.maxHeight = 0;
+                aItem.toggleClass('active');
+            }
+            item.toggleClass('active');
+        }
+        function accordionInit(){
+          $('ul.accordion > li.active > div:first-child').each((_,target) => {
+            const item = $(target).parent();
+            const content = item.children('div:nth-child(2)');
+            content.get(0).style.maxHeight = content.get(0).scrollHeight + 30 + "px";
+          })
+        }
+
+		/* Page Initialization */
+        accordionInit();	//accordion goes first, so the init height is calculated correctly
+        $('.js-pagination').each((ilist, list) => {
+			changePage($(list),1);
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<title>Coryn Club - Toram Online Database & Tools</title>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="keywords" content="Coryn Club, Toram Online, Game Guide, MMORPG, Android Game, iOS Game, Asobimo, Toram Online Database,
+		Drop List, Monster List, Equipment List, Stat Calculator, Skill Simulator, Combo Simulator, Statting Formula, Leveling Guide" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700|Six+Caps' rel='stylesheet' type='text/css' />
+	<script src="js/jquery.min.js"></script>
+
+
+	<!-- GOOGLE ANALYTICS JS -->
+	<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-85513259-1', 'auto');
+		  ga('send', 'pageview');
+	</script>
+	<!-- END OF GOOGLE ANALYTICS JS -->
+
+</head>
+<body>
+    	<!--header-top-starts-->
+    <div id="navbar" style="grid-template-columns: 1fr 1fr" class="grid animated fadeInDown">
+		<!-- LEFT GRID -->
+        <div id="navbar-main">
+			<div id="navbar-logo"><img src="images/cc_logo.gif"></div>
+			<div id="navbar-title">
+				<a href="index.php">Coryn Club</a>
+			</div>
+        </div>
+
+		<!-- RIGHT GRID -->
+        <div style="display:flex; justify-content:flex-end; align-items:center;">
+			<div class="ml-5 mr-5">
+				<img id="language_container" width="28" height="28" src="images/lang.png">
+				<ul class="language-menu" >
+					<li><a href="http://coryn.club">English</a></li>
+					<li><a href="http://jp.coryn.club">Japanese</a></li>
+					<li><a href="http://indo.coryn.club">Bahasa Indonesia</a></li>
+					<li><a href="http://thai.coryn.club">Thai</a></li>
+					<li><a href="http://trachn.coryn.club">Traditional Chinese</a></li>
+					<li><a href="http://simchn.coryn.club">Simplified Chinese</a></li>
+					<li><a href="http://kr.coryn.club">Korean</a></li>
+				</ul>
+			</div>
+
+            <a href="index.php#index-login"><img class="ml-5 mr-5" src="images/login.png" alt="Sign In" title="Sign In/Register"></a>        </div><!-- END OF RIGHT GRID -->
+	</div><!-- END OF NAVBAR -->
+
+	<div id="wrapper">
+	<!-- script-for-menu -->
+	<script>
+		$(document).ready(function() {
+			$("body").click(function() {
+				$(".username-menu").removeClass('active');
+				$(".language-menu").removeClass('active');
+			});
+		});
+	</script>
+        <div id="sidebar" class="animated fadeInLeft fast">
+        <div id="sidebar-content">
+            <div class="sidebar-content-item-wrapper">
+                <div id="main-menu" class="sidebar-content-item active" data-target="tab-1" style="height:100%; display:flex; flex-direction:column; justify-content:space-between">
+                    <div class="all-menu"> <!-- all menu stays on top -->
+						<p class="sidebar-tab-item-title">Menu</p>
+<ul class="menu-root">
+	<li><a class="nested" href="javascript: void(1);">Item</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="item.php">All</a></li>
+				<li><a href="item.php?special=dye&order=type">Dye</a></li>
+				<li><a href="item.php?type=1&order=name">Usable</a></li>
+				<li><a href="registlet.php">Registlet</a></li>
+				<li><a class="nested" href="javascript: void(1);">Crysta</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="item.php?special=xtal">All</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=20">Normal</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=21">Weapon</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=22">Armor</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=23">Additional</a></li>
+							<li><a href="item.php?special=xtal&order=id desc&type=24">Special</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nested" href="javascript: void(1);">Material</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="material.php?proc=1">Beast</a></li>
+							<li><a href="material.php?proc=2">Wood</a></li>
+							<li><a href="material.php?proc=3">Metal</a></li>
+							<li><a href="material.php?proc=4">Cloth</a></li>
+							<li><a href="material.php?proc=5">Medicine</a></li>
+							<li><a href="material.php?proc=6">Mana</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Equipment</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="item.php?special=eq">All</a></li>
+				<li><a href="item.php?type=4&order=atk%20ASC,name">1-Handed Sword</a></li>
+				<li><a href="item.php?type=5&order=atk%20ASC,name">2-Handed Sword</a></li>
+				<li><a href="item.php?type=9&order=atk%20ASC,name">Bow</a></li>
+				<li><a href="item.php?type=10&order=atk%20ASC,name">Bowgun</a></li>
+				<li><a href="item.php?type=13&order=atk%20ASC,name">Knuckles</a></li>
+				<li><a href="item.php?type=15&order=atk%20ASC,name">Magic Device</a></li>
+				<li><a href="item.php?type=19&order=atk%20ASC,name">Staff</a></li>
+				<li><a href="item.php?type=26&order=atk%20ASC,name">Halberd</a></li>
+				<li><a href="item.php?type=27&order=atk%20ASC,name">Katana</a></li>
+				<li><a href="item.php?type=11&order=atk%20ASC,name">Dagger</a></li>
+				<li><a href="item.php?type=7&order=atk%20ASC,name">Arrow</a></li>
+				<li><a href="item.php?type=17&order=def%20ASC,name">Shield</a></li>
+				<li><a href="item.php?type=28&order=id,name">Ninjutsu Scroll</a></li>
+				<li><a href="item.php?type=8&order=def%20ASC,name">Armor</a></li>
+				<li><a href="item.php?type=6&order=def%20ASC,name">Additional</a></li>
+				<li><a href="item.php?type=18&order=def%20ASC,name">Special</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Monster</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="monster.php">All</a></li>
+				<li><a href="monster.php?type=N&order=level">Normal</a></li>
+				<li><a href="monster.php?type=M&order=level">Mini Boss</a></li>
+				<li><a href="monster.php?type=B&order=level">Boss</a></li>
+				<li><a class="nested" href="javascript: void(1);">Pet/Tamable</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="monster_tameable.php?ele=0">Neutral</a></li>
+							<li><a href="monster_tameable.php?ele=1">Fire</a></li>
+							<li><a href="monster_tameable.php?ele=2">Water</a></li>
+							<li><a href="monster_tameable.php?ele=3">Wind</a></li>
+							<li><a href="monster_tameable.php?ele=4">Earth</a></li>
+							<li><a href="monster_tameable.php?ele=5">Dark</a></li>
+							<li><a href="monster_tameable.php?ele=6">Light</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nested" href="javascript: void(1);">Element</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="monster_element.php?ele=0">Neutral</a></li>
+							<li><a href="monster_element.php?ele=1">Fire</a></li>
+							<li><a href="monster_element.php?ele=2">Water</a></li>
+							<li><a href="monster_element.php?ele=3">Wind</a></li>
+							<li><a href="monster_element.php?ele=4">Earth</a></li>
+							<li><a href="monster_element.php?ele=5">Dark</a></li>
+							<li><a href="monster_element.php?ele=6">Light</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Quest</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="quest.php">All</a></li>
+				<li><a class="nested" href="javascript: void(1);">Sofya</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="quest.php?npc=253">Yunis</a></li>
+							<li><a href="quest.php?npc=256">Frente</a></li>
+							<li><a href="quest.php?npc=258">Zono</a></li>
+							<li><a href="quest.php?npc=259">Forf</a></li>
+							<li><a href="quest.php?npc=260">Lefina</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nested" href="javascript: void(1);">El Scaro</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="quest.php?npc=391">Potolo</a></li>
+							<li><a href="quest.php?npc=392">Juan</a></li>
+							<li><a href="quest.php?npc=398">Filecia</a></li>
+							<li><a href="quest.php?npc=394">Rina</a></li>
+							<li><a href="quest.php?npc=393">Ravagne</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="quest.php?npc=296">Rugio Ruins - Moralo</a></li>
+				<li>
+					<a class="nested" href="javascript: void(1);">Garden of Beginning</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="quest.php?npc=1737">Noble's Spirit</a></li>
+							<li><a href="quest.php?npc=1738">Researcher's Spirit</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Other DB</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="map.php">Map</a></li>
+				<li><a href="skill_menu.php">Skill</a></li>
+				<li><a href="furniture_menu.php">Housing</a></li>
+				<li><a href="food.php">Food Buff</a></li>
+				<li><a href="https://www.facebook.com/pg/corynclub/photos/?tab=album&album_id=686599141510648">Pet Dye</a></li>
+				<li><a href="emblem.php">Emblem</a></li>
+				<li>
+					<a class="nested" href="javascript: void(1);">Craft</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="item.php?special=psmith&order=level">Player Smith</a></li>
+							<li><a href="item.php?special=nsmith&order=type,level">NPC Smith</a></li>
+							<li><a href="item.php?special=palch&order=level">Player Alchemist</a></li>
+							<li><a href="item.php?special=nalch&order=type,level">NPC Alchemist</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Guide</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href="guide.php?key=beginner">Beginner Guide</a></li>
+				<li><a href="guide.php?key=petguide">Pet Guide</a></li>
+				<li><a href="guide.php?key=smith">Smithing Guide</a></li>
+				<li><a href="guide.php?key=status">Status & Damage Calculation Guide</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">App Showcase</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a href='app_showcase.php?type=8'>Armor</a></li>
+				<li><a href='app_showcase.php?type=6'>Additional Gear</a></li>
+				<li><a href='app_showcase.php?type=17'>Shield</a></li>
+				<li><a href='app_showcase.php?type=4'>1 Handed Sword</a></li>
+				<li><a href='app_showcase.php?type=5'>2 Handed Sword</a></li></li>
+				<li><a href='app_showcase.php?type=9'>Bow</a></li>
+				<li><a href='app_showcase.php?type=10'>Bowgun</a></li>
+				<li><a href='app_showcase.php?type=13'>Knuckles</a></li>
+				<li><a href='app_showcase.php?type=15'>Magic Device</a></li>
+				<li><a href='app_showcase.php?type=19'>Staff</a></li>
+				<li><a href='app_showcase.php?type=26'>Halberd</a></li>
+				<li><a href='app_showcase.php?type=27'>Katana</a>
+			</ul>
+		</div>
+	</li>
+	<li><a class="nested" href="javascript: void(1);">Tools</a>
+		<div class="submenu collapse">
+			<ul>
+				<li><a class="nested" href="javascript: void(1);">Calculator</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="stat_calculator.php">Stat Calculator</a></li>
+							<li><a href="pet_calculator.php">Pet Stat Calculator</a></li>
+							<li><a href="quest_calculator.php">Quest Calculator</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nested" href="javascript: void(1);">Simulator</a>
+					<div class="submenu collapse">
+						<ul>
+							<li><a href="statting_simulator.php">Statting Simulator</a></li>
+							<li><a href="skill_simulator.php">Skill Simulator</a></li>
+							<li><a href="combo_simulator.php">Combo Simulator</a></li>
+							<li><a href="app_simulator.php">App Synth Simulator</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="leveling.php">Character Leveling</a></li>
+				<li><a href="pet_leveling.php">Pet Leveling</a></li>
+				<li><a href="pet_fusion_optimizer.php">Pet Fusion Optimizer</a></li>
+				<li><a href="formula.php">Statting Formula List</a></li>
+				<li><a href="formula_search.php">Statting Formula Search</a></li>
+				<li><a href="dye_finder.php">Dye Finder</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a href="/forum/">Forum</a></li>
+	<li><a href="credits.php">Credits</a></li>
+	</ul>
+<p class="sidebar-tab-item-title">Search</p>
+<form class="input-search" action="leveling.php">
+  <input type="text" name="lv" placeholder="Your Level">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="monster.php">
+  <input type="text" name="name" placeholder="Monster Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="map.php">
+  <input type="text" name="name" placeholder="Map Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="item.php">
+  <input type="text" name="name" placeholder="Item Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<form class="input-search" action="furniture.php">
+  <input type="text" name="name" placeholder="Furniture Name">
+  <button type="submit">
+	<i class="fa fa-search"></i>
+  </button>
+</form>
+<button class="adv-search-button" onclick="window.location.href = 'itemsearch.php';">Advanced Item Search</button>
+
+					</div> <!-- end of menus -->
+
+                    <div>
+					     <p style="font-family: Arial; font-size:13px; font-style:italic; color:#999;">Coryn Club - Toram Online Database is ©Cruithne. Toram Online is ©Asobimo, Inc. All Rights Reserved. </p>
+                	</div>
+                </div>
+            </div>
+
+            <div class="sidebar-content-item-wrapper">
+                <div class="sidebar-content-item " data-target="tab-2">
+					                    <!-- SAMPLE -->
+                    <!--<p class="sidebar-tab-item-title" style="border: 1px solid green; display:block">Guide Content</p>
+					<ul class="menu-root">
+						<li><a class="nested" href="#">Item</a>
+						<li><a class="nested" href="#">Item</a>
+					</ul>-->
+                </div>
+            </div>
+        </div>
+        <div id="sidebar-tab">
+            <div class="sidebar-tab-item active" data-target="tab-1" title="Menu">
+                <i class="fas fa-bars fa-lg"></i>
+            </div>
+            <div class="sidebar-tab-item " data-target="tab-2" title="Extra" style="display:none">
+                <i class="fas fa-book fa-lg"></i>
+            </div>
+            <div class="sidebar-tab-item back-to-top" title="Back To Top">
+                <i class="fas fa-chevron-up fa-lg"></i>
+            </div>
+            <div id="scrollbox" style="flex:1 0 100px;">
+            </div>
+        </div>
+    </div>
+
+	    <div id="content">
+        	<center>
+		<div>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Coryn Club (responsive) -->
+		<ins class="adsbygoogle adsense-top"
+		     style="display:inline-block;"
+		     data-ad-client="ca-pub-6728336374001187"
+		     data-ad-slot="4531457552"
+		     data-full-width-responsive="false"></ins>
+		<script>
+		     (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</div>
+		</center>
+	        <p class="content-title">Item
+        <span class="content-subtitle">
+             [ Weapon :: Katana ]        </span>
+        </p>
+		<div class="mb-15"><h4 align='center' style='color:blue'><span class='avoidwrap'>| <a href='item.php?type=27&order=atk%20ASC,name'>Sort ATK Ascending</a> |</span><span class='avoidwrap'>| <a href='item.php?type=27&order=atk%20DESC,name'>Sort ATK Descending</a> |</span></h4></div>
+        
+            <div class="card-container">
+                                    <div>
+                            <div class="card-title">
+        Abyss Katana <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Abyss Katana.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>0 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>unknown</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            213                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	DEX %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	MaxHP                        </div>
+                        <div>
+                                                            7500                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	% stronger against Fire                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Aggro %                        </div>
+                        <div>
+                                                            -75                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Water Element                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Unsheathe Attack %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Invincible Aid (sec)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Absolute Dodge %                        </div>
+                        <div>
+                                                            20                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7491">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7491" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7491">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=3152'>
+										Vatudo																					<span class="avoidwrap text-blue">(Lv 255)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=576'>Deep Sea: Deepest Zone</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=3153'>
+										Vatudo																					<span class="avoidwrap text-blue">(Lv 275)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=576'>Deep Sea: Deepest Zone</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=3154'>
+										Vatudo																					<span class="avoidwrap text-blue">(Lv 285)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=576'>Deep Sea: Deepest Zone</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=3155'>
+										Vatudo																					<span class="avoidwrap text-blue">(Lv 305)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=576'>Deep Sea: Deepest Zone</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7491"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                                </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Abyss Katana <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Abyss Katana.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>0 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>unknown</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            213                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	DEX %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	MaxHP                        </div>
+                        <div>
+                                                            10000                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	% stronger against Fire                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Aggro %                        </div>
+                        <div>
+                                                            -100                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Water Element                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Unsheathe Attack %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Invincible Aid (sec)                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Absolute Dodge %                        </div>
+                        <div>
+                                                            5                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7739">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7739" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7739">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#D0BA24'>[NPC]</font>									Blacksmith : Zaldo																								</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=76'>Sofya City: Blacksmith</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7739"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                <li class="">
+        <div>
+            <div>Recipe</div>
+        </div>
+        <div class="item-prop mini">
+            <div><p class="accent-bold">Fee</p><div>2650 Spina</div></div>
+            <div><p class="accent-bold">Set</p><div>1 pcs</div></div>
+            <div><p class="accent-bold">Level</p><div>260</div></div>
+            <div><p class="accent-bold">Difficulty</p><div>265</div></div>
+            <div>
+                <p class="accent-bold">Materials</p>
+                <div>
+                    <ul>
+                                                                                    <li>- 2x <a href='item.php?id=7489'>Vatudo's Tactile Hair</a></li>
+                                                                                                                <li>- 2x <a href='item.php?id=7487'>Vatudo's Spiral Arm</a></li>
+                                                                                                                <li>- 1750x Metal</li>
+                                                                                                                <li>- 900x Beast</li>
+                                                                        </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+                    </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Abyss Katana <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Abyss Katana.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>0 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>unknown</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            213                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Potential                        </div>
+                        <div>
+                                                            58                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7740">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7740" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7740">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#24D038'>[Player]</font>									Smith Skill																								</div>
+							<div>
+															</div>
+							<div>
+																	-															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7740"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                <li class="">
+        <div>
+            <div>Recipe</div>
+        </div>
+        <div class="item-prop mini">
+            <div><p class="accent-bold">Fee</p><div>N/A</div></div>
+            <div><p class="accent-bold">Set</p><div>1 pcs</div></div>
+            <div><p class="accent-bold">Level</p><div>260</div></div>
+            <div><p class="accent-bold">Difficulty</p><div>265</div></div>
+            <div>
+                <p class="accent-bold">Materials</p>
+                <div>
+                    <ul>
+                                                                                    <li>- 2x <a href='item.php?id=7489'>Vatudo's Tactile Hair</a></li>
+                                                                                                                <li>- 2x <a href='item.php?id=7487'>Vatudo's Spiral Arm</a></li>
+                                                                                                                <li>- 1750x Metal</li>
+                                                                                                                <li>- 900x Beast</li>
+                                                                        </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+                    </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        8th Anniv Katana VI <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-8th Anniv Katana.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>250 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>125 Metal</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	DEX %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	MaxMP                        </div>
+                        <div>
+                                                            250                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ATK %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Critical Rate                        </div>
+                        <div>
+                                                            35                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Unsheathe Attack %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Reduce Dmg (Bowling) %                        </div>
+                        <div>
+                                                            35                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack Range (m)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7294">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7294" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7294">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#D0BA24'>[NPC]</font>									Blacksmith : Zaldo																								</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=76'>Sofya City: Blacksmith</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7294"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                <li class="">
+        <div>
+            <div>Recipe</div>
+        </div>
+        <div class="item-prop mini">
+            <div><p class="accent-bold">Fee</p><div>480 Spina</div></div>
+            <div><p class="accent-bold">Set</p><div>1 pcs</div></div>
+            <div><p class="accent-bold">Level</p><div>230</div></div>
+            <div><p class="accent-bold">Difficulty</p><div>260</div></div>
+            <div>
+                <p class="accent-bold">Materials</p>
+                <div>
+                    <ul>
+                                                                                    <li>- 20x <a href='item.php?id=7187'>Golpom 8th Anniv Medal</a></li>
+                                                                                                                <li>- 260x Metal</li>
+                                                                                                                                                                                </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+                    </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        8th Anniv Katana VI <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-8th Anniv Katana.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>250 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>125 Metal</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Potential                        </div>
+                        <div>
+                                                            55                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack Range (m)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7295">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7295" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7295">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#24D038'>[Player]</font>									Smith Skill																								</div>
+							<div>
+															</div>
+							<div>
+																	-															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7295"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                <li class="">
+        <div>
+            <div>Recipe</div>
+        </div>
+        <div class="item-prop mini">
+            <div><p class="accent-bold">Fee</p><div>480 Spina</div></div>
+            <div><p class="accent-bold">Set</p><div>1 pcs</div></div>
+            <div><p class="accent-bold">Level</p><div>230</div></div>
+            <div><p class="accent-bold">Difficulty</p><div>260</div></div>
+            <div>
+                <p class="accent-bold">Materials</p>
+                <div>
+                    <ul>
+                                                                                    <li>- 20x <a href='item.php?id=7187'>Golpom 8th Anniv Medal</a></li>
+                                                                                                                <li>- 260x Metal</li>
+                                                                                                                                                                                </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+                    </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Brass Dragon Sword <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Brass Dragon Sword.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>250 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>125 Metal</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ATK %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Accuracy                        </div>
+                        <div>
+                                                            100                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ASPD                        </div>
+                        <div>
+                                                            1000                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Critical Rate %                        </div>
+                        <div>
+                                                            200                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Light Element                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Additional Melee %                        </div>
+                        <div>
+                                                            100                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Reduce Dmg (Charge) %                        </div>
+                        <div>
+                                                            40                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack Range (m)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7050">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7050" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7050">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=2956'>
+										Brass Dragon Reguita																					<span class="avoidwrap text-blue">(Lv 240)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=526'>Boma Konda: Village Center</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=2957'>
+										Brass Dragon Reguita																					<span class="avoidwrap text-blue">(Lv 250)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=526'>Boma Konda: Village Center</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=2958'>
+										Brass Dragon Reguita																					<span class="avoidwrap text-blue">(Lv 260)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=526'>Boma Konda: Village Center</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=2959'>
+										Brass Dragon Reguita																					<span class="avoidwrap text-blue">(Lv 270)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=526'>Boma Konda: Village Center</a>
+															</div>
+						</div>
+											<div class="pagination-js-item">
+							<div>
+																	<a href='monster.php?id=2960'>
+										Brass Dragon Reguita																					<span class="avoidwrap text-blue">(Lv 290)</span>
+																			</a>
+															</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=526'>Boma Konda: Village Center</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7050"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                                </ul>
+
+                    </div>
+                		<div class="card-adsense">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Coryn Club (responsive) -->
+				<ins class="adsbygoogle adsense-card"
+				     style="display:inline-block;"
+				     data-ad-client="ca-pub-6728336374001187"
+				     data-ad-slot="4531457552"
+				     data-full-width-responsive="false"></ins>
+				<script>
+				     (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+
+		</div>
+	                    <div>
+                            <div class="card-title">
+        Brass Dragon Sword <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Brass Dragon Sword.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>0 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>unknown</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ATK %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Accuracy                        </div>
+                        <div>
+                                                            200                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ASPD                        </div>
+                        <div>
+                                                            1000                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Critical Rate %                        </div>
+                        <div>
+                                                            100                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Light Element                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Additional Melee %                        </div>
+                        <div>
+                                                            100                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Reduce Dmg (Charge) %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack Range (m)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7684">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7684" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7684">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#D0BA24'>[NPC]</font>									Blacksmith : Zaldo																								</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=76'>Sofya City: Blacksmith</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7684"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                <li class="">
+        <div>
+            <div>Recipe</div>
+        </div>
+        <div class="item-prop mini">
+            <div><p class="accent-bold">Fee</p><div>2500 Spina</div></div>
+            <div><p class="accent-bold">Set</p><div>1 pcs</div></div>
+            <div><p class="accent-bold">Level</p><div>245</div></div>
+            <div><p class="accent-bold">Difficulty</p><div>250</div></div>
+            <div>
+                <p class="accent-bold">Materials</p>
+                <div>
+                    <ul>
+                                                                                    <li>- 1x <a href='item.php?id=7048'>Brass Dragon Trumpet Horn</a></li>
+                                                                                                                <li>- 2x <a href='item.php?id=7051'>Brass Dragon Tail</a></li>
+                                                                                                                <li>- 1500x Beast</li>
+                                                                                                                <li>- 1000x Metal</li>
+                                                                        </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+                    </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Brass Dragon Sword <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Brass Dragon Sword.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>0 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>unknown</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Potential                        </div>
+                        <div>
+                                                            55                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-7685">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-7685" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-7685">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#24D038'>[Player]</font>									Smith Skill																								</div>
+							<div>
+															</div>
+							<div>
+																	-															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-7685"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                <li class="">
+        <div>
+            <div>Recipe</div>
+        </div>
+        <div class="item-prop mini">
+            <div><p class="accent-bold">Fee</p><div>N/A</div></div>
+            <div><p class="accent-bold">Set</p><div>1 pcs</div></div>
+            <div><p class="accent-bold">Level</p><div>245</div></div>
+            <div><p class="accent-bold">Difficulty</p><div>250</div></div>
+            <div>
+                <p class="accent-bold">Materials</p>
+                <div>
+                    <ul>
+                                                                                    <li>- 1x <a href='item.php?id=7048'>Brass Dragon Trumpet Horn</a></li>
+                                                                                                                <li>- 2x <a href='item.php?id=7051'>Brass Dragon Tail</a></li>
+                                                                                                                <li>- 1500x Beast</li>
+                                                                                                                <li>- 1000x Metal</li>
+                                                                        </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+                    </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Modestia <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Modestia.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>1 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>1000 Mana</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ASPD                        </div>
+                        <div>
+                                                            1000                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Critical Rate                        </div>
+                        <div>
+                                                            120                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack MP Recovery                        </div>
+                        <div>
+                                                            15                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-6793">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-6793" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-6793">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#D0BA24'>[NPC]</font>									Mysterious Exchange (P. Avatar 2023)																								</div>
+							<div>
+															</div>
+							<div>
+																	Event															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-6793"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                                </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Patriot Edge <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Patriot Edge.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>1 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>100 Mana</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	DEX %                        </div>
+                        <div>
+                                                            5                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ATK %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Wind resistance %                        </div>
+                        <div>
+                                                            15                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Aggro %                        </div>
+                        <div>
+                                                            -40                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Earth Element                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack MP Recovery                        </div>
+                        <div>
+                                                            7                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Reduce Dmg (Bowling) %                        </div>
+                        <div>
+                                                            15                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack Range (m)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-6897">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-6897" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-6897">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#D0BA24'>[NPC]</font>									HATSUNE MIKU's Collab Event Reception: 2nd Part (2023)																								</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=383'>HATSUNE MIKU Collab Venue</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-6897"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                                </ul>
+
+                    </div>
+                                    <div>
+                            <div class="card-title">
+        Patriot Edge <font color='#CE8505'>[Katana]</font>    </div>
+    <hr class="separator">
+            <div class="item-upper">
+            <div><div class="app-div"><table><tr><td background="app/27-Patriot Edge.jpg" width="150px" height="180"></td></tr></table></div></div>
+            <div>
+            <div class="item-prop mini">
+                            <div><p class="accent-bold">Sell</p><p>1 Spina</p></div>
+                                <div><p class="accent-bold">Process</p><p>100 Mana</p></div>
+                                        </div>
+        </div>
+    </div>
+    <ul class="accordion card-attach-bottom">
+                    <li class="active">
+            <div>Stat/Effect</div>
+            <div class="table-grid item-basestat">
+                <div>
+                    <div>
+                        Stat/Effect
+                    </div>
+                    <div>
+                        Amount
+                    </div>
+                </div>
+                                                    <div>
+                        <div>
+                        	Base ATK                        </div>
+                        <div>
+                                                            194                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	DEX %                        </div>
+                        <div>
+                                                            5                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	ATK %                        </div>
+                        <div>
+                                                            10                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Earth resistance %                        </div>
+                        <div>
+                                                            15                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Aggro %                        </div>
+                        <div>
+                                                            -40                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Fire Element                        </div>
+                        <div>
+                                                            1                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack MP Recovery                        </div>
+                        <div>
+                                                            7                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Base Stability %                        </div>
+                        <div>
+                                                            70                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Reduce Dmg (Bowling) %                        </div>
+                        <div>
+                                                            15                                                    </div>
+                                                </div>
+                                    <div>
+                        <div>
+                        	Attack Range (m)                        </div>
+                        <div>
+                                                            2                                                    </div>
+                                                </div>
+                            </div>
+        </li>
+                        <li class="">
+            <div><div>Obtained From</div></div>	<!-- Obtained From Title -->
+            <div id="obtain-6898">		<!-- Obtained From Content -->
+				<div class="table-grid item-obtainfrom">
+					<div>
+						<div>Monster</div>
+						<div>Dye</div>
+						<div>Map</div>
+					</div>
+				</div>
+				<div class="js-pagination" id="obtain-list-6898" data-current-page="1" data-perpage="6" data-display="grid" data-accord="#obtain-6898">
+					<div class="table-grid no-head item-obtainfrom pagination-js-items">
+											<div class="pagination-js-item">
+							<div>
+																	<font color='#D0BA24'>[NPC]</font>									HATSUNE MIKU's Collab Event Reception: 2nd Part (2023)																								</div>
+							<div>
+															</div>
+							<div>
+																	<a href='map.php?id=383'>HATSUNE MIKU Collab Venue</a>
+															</div>
+						</div>
+										</div> <!-- end of pagination items -->
+				</div> <!-- end of js-pagination -->
+            	<div class="pagination-js-btngroup pagination-group-btn" data-target="#obtain-list-6898"></div>
+            </div> <!-- end of Obtained From content -->
+        </li>
+                                </ul>
+
+                    </div>
+                            </div>
+            		<div class="text-center mt-30">
+			<div class="pagination-group-btn">
+								<a style="filter: grayscale(100%) opacity(.3); cursor: not-allowed;">
+					<i class="fas fa-angle-double-left"></i>
+				</a>
+				<a style="filter: grayscale(100%) opacity(.3); cursor: not-allowed;">
+					<i class="fas fa-angle-left"></i>
+				</a>
+													<a href="item.php?&show=11&type=27&order=atk DESC,name&p=0" class="active">
+						1					</a>
+									<a href="item.php?&show=11&type=27&order=atk DESC,name&p=1" class="">
+						2					</a>
+									<a href="item.php?&show=11&type=27&order=atk DESC,name&p=2" class="">
+						3					</a>
+									<a href="item.php?&show=11&type=27&order=atk DESC,name&p=3" class="">
+						4					</a>
+									<a href="item.php?&show=11&type=27&order=atk DESC,name&p=4" class="">
+						5					</a>
+												<a href="item.php?&show=11&type=27&order=atk DESC,name&p=1">
+					<i class="fas fa-angle-right"></i>
+				</a>
+				<a href="item.php?&show=11&type=27&order=atk DESC,name&p=25">
+					<i class="fas fa-angle-double-right"></i>
+				</a>
+							</div>
+		</div>
+            </div>
+
+    	</div> <!-- END OF CONTENT WRAPPER -->
+
+	<script src="js/sohacky.js"></script>
+    <script>
+        /* Top nav */
+        $("#username_container").click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(".username-menu").toggleClass('active');
+            $("#username_chevron_up").toggleClass('active');
+            $("#username_chevron_down").toggleClass('active');
+        })
+        $("#language_container").click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$(".language-menu").toggleClass('active');
+			$("#language_chevron_up").toggleClass('active');
+			$("#language_chevron_down").toggleClass('active');
+        })
+
+        /* Sidebar */
+        if ($(window).width() <= 950) {
+            $("#sidebar").removeClass('animated fadeInLeft fast');
+            $(".sidebar-content-item").removeClass('active');;
+            $(".sidebar-tab-item").removeClass('active');;
+        }
+
+        $('.sidebar-tab-item').on('click',function(ev){
+            const target = ev.currentTarget.dataset.target;
+            if(!target){
+                return;
+            }
+            if ($(window).width() <= 950) {
+                if(!ev.currentTarget.classList.contains('active') && !$("#sidebar").hasClass('active')){
+                    $("#sidebar").addClass('active')
+                }else if(ev.currentTarget.classList.contains('active')){
+                    $(".sidebar-content-item").removeClass('active');;
+                    $(".sidebar-tab-item").removeClass('active');;
+                    $("#sidebar").removeClass('active');
+                    return;
+                }
+            }
+            $(`.sidebar-content-item[data-target!="${target}"]`).removeClass('active');;
+            $(`.sidebar-content-item[data-target="${target}"]`).addClass('active');
+
+            $(`.sidebar-tab-item[data-target!="${target}"]`).removeClass('active');;
+            $(`.sidebar-tab-item[data-target="${target}"]`).addClass('active');
+        });
+
+        $('.back-to-top').on('click',(ev) => {
+            ev.preventDefault();
+            var $anchor = $(this);
+            $('#content').stop().animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        /* Sidebar Menu */
+        $('ul.menu-root a.nested').click(function(e){
+            if(e.target.tagName === 'A'){
+                $(this).toggleClass('expanded');
+                $(this).siblings('div.submenu').toggleClass('collapse');
+            }
+        })
+
+        /* Pagination JS */
+        $('body').on('click','.pagination-js-btn', (e) => {
+            let pagebtn = $(e.currentTarget);
+            let list = $(pagebtn.parent().data('target'));
+            let pagenumber = parseInt(pagebtn.data('page-number'));
+            changePage($(list),pagenumber);
+        })
+        function changePage(list,pagenumber){
+            let disp = list.data('display');
+            let accord = list.data('accord');
+            let listitems = list.children('.pagination-js-items').children();
+            let total = listitems.length;
+            let perpage = list.data('perpage');
+            let totalpage = Math.ceil(total / perpage);
+            let currentpage = list.data('current-page');
+            let pagination = $('[data-target="#' + list.attr('id') + '"].pagination-js-btngroup');
+            let pstart = pagenumber;
+            let numbtn = 3;
+            let offset = Math.floor(numbtn / 2);
+            if(pagenumber <= 0 || pagenumber > totalpage){
+                return;
+            }
+            list.data('current-page',pagenumber);
+            pstart -= offset;
+             if(pstart < 1){
+                pstart = 1;
+            }else if(pstart + numbtn > totalpage){
+                pstart = totalpage - (numbtn - 1)
+                if(pstart < 1) pstart = 1;
+            }
+            pagination.html('');
+            let prev = pagenumber - 1;
+            let next = pagenumber + 1;
+            let active = false;
+            listitems.each((idx,elem) => {
+                let num = idx + 1;
+                if(num <= pagenumber * perpage && num >= (pagenumber * perpage) - (perpage - 1) ){
+                    $(elem).css('display',disp);
+                }else{
+                    $(elem).css('display','none');
+                }
+            });
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${1}"><i class="fas fa-angle-double-left"></i></a>`);
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${prev}"><i class="fas fa-angle-left"></i></a>`);
+            for(let i  = pstart, j = 0;j < numbtn && i <= totalpage;i++,j++){
+                if(i === pagenumber){
+                    active = true;
+                }else{
+                    active = false;
+                }
+                pagination.append(`<a href="#" class="pagination-js-btn ${(active)?'active':''}" data-page-number="${i}">${i}</a>`);
+            }
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${next}"><i class="fas fa-angle-right"></i></a>`);
+            pagination.append(`<a href="#" class="pagination-js-btn" data-page-number="${totalpage}"><i class="fas fa-angle-double-right"></a>`);
+            if(totalpage < 2){
+                pagination.css('display','none');
+            }
+
+            //fix height if inside accordion
+            if(typeof accord !== 'undefined' && $(accord).get(0).style.maxHeight!=0)
+            		$(accord).get(0).style.maxHeight = $(accord).get(0).scrollHeight + 30 + "px";
+
+        }
+
+        /* Accordion */
+        $('body').on('click','ul.accordion > li > div:first-child',accordionOnClick);
+        function accordionOnClick(e){
+            const item = $(e.currentTarget).parent();
+            const accordion = item.parent();
+            const content = item.children('div:nth-child(2)');
+            const aItem = item.siblings('.active');
+            const aContent = aItem.children('div:nth-child(2)');
+            if(item.hasClass('active')){
+                content.get(0).style.maxHeight = 0;
+            }else{
+                content.get(0).style.maxHeight = content.get(0).scrollHeight + 30 + "px";
+            }
+
+            if(aItem.length > 0){
+                aContent.get(0).style.maxHeight = 0;
+                aItem.toggleClass('active');
+            }
+            item.toggleClass('active');
+        }
+        function accordionInit(){
+          $('ul.accordion > li.active > div:first-child').each((_,target) => {
+            const item = $(target).parent();
+            const content = item.children('div:nth-child(2)');
+            content.get(0).style.maxHeight = content.get(0).scrollHeight + 30 + "px";
+          })
+        }
+
+		/* Page Initialization */
+        accordionInit();	//accordion goes first, so the init height is calculated correctly
+        $('.js-pagination').each((ilist, list) => {
+			changePage($(list),1);
+        })
+
+    </script>
+
+</body>
+</html>
