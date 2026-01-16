@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸- いらっしゃいませ！</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --sakura-pink: #ff6b9d;
+            --light-pink: #ffc0cb;
+            --purple: #b794f6;
+            --cyan: #67e8f9;
+            --tokyo-night: #1a1a2e;
+            --dark-purple: #16213e;
+            --neon-pink: #ff2e97;
+            --neon-cyan: #00f5ff;
+        }
+        
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        
+        /* Sakura Animation */
+        .sakura {
+            position: fixed;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background: var(--sakura-pink);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7;
+            animation: fall 10s infinite;
+            z-index: 0;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Landing Page */
+        .landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 9999;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .landing-page.hide {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+        }
+        
+        .mascot {
+            font-size: 150px;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Card Kawaii Style */
+        .kawaii-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid var(--sakura-pink);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dark-mode .kawaii-card {
+            background: rgba(22, 33, 62, 0.95);
+            border-color: var(--neon-pink);
+            color: white;
+        }
+        
+        .kawaii-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .kawaii-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+        }
+        
+        /* Button Styles */
+        .btn-kawaii {
+            background: linear-gradient(135deg, var(--sakura-pink), var(--purple));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-kawaii:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.6);
+        }
+        
+        .btn-kawaii:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(167, 139, 250, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(167, 139, 250, 0.6);
+        }
+        
+        /* Product Card */
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        
+        .dark-mode .product-card {
+            background: var(--dark-purple);
+            color: white;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sakura-pink);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* Cart Float */
+        .cart-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--neon-pink), var(--purple));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 46, 151, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .cart-float:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--neon-cyan);
+            color: var(--tokyo-night);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 900;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Tab Navigation */
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--sakura-pink), var(--purple));
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        /* Input Kawaii */
+        .input-kawaii {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--light-pink);
+            border-radius: 50px;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+            color: #1a1a2e;
+        }
+        
+        .dark-mode .input-kawaii {
+            background: var(--tokyo-night);
+            color: white;
+            border-color: var(--purple);
+        }
+        
+        .input-kawaii:focus {
+            outline: none;
+            border-color: var(--sakura-pink);
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+        }
+        
+        /* Text Colors for Light Mode */
+        .text-primary {
+            color: #1a1a2e;
+        }
+        
+        .dark-mode .text-primary {
+            color: white;
+        }
+        
+        .text-secondary {
+            color: #4a5568;
+        }
+        
+        .dark-mode .text-secondary {
+            color: #cbd5e0;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid var(--sakura-pink);
+            transform: translateX(400px);
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 10000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Print Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #receiptPrint, #receiptPrint * {
+                visibility: visible;
+            }
+            #receiptPrint {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+        
+        /* Scroll Animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mascot {
+                font-size: 100px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .kawaii-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sakura Petals -->
+    <div id="sakuraContainer"></div>
+    
+    <!-- Dark Mode Toggle -->
+    <div class="dark-toggle" onclick="toggleDarkMode()">
+        <span id="darkModeIcon">🌙</span>
+    </div>
+    
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <div class="mascot">🎌</div>
+        <h1 class="text-5xl md:text-7xl font-black text-white mb-4" style="text-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+            いらっしゃいませ！
+        </h1>
+        <p class="text-2xl text-white mb-8 opacity-90">Hbz POS System ✨</p>
+        <button class="btn-kawaii text-xl" onclick="enterApp()">
+            入る (Masuk!) 💖
+        </button>
+    </div>
+    
+    <!-- Main App -->
+    <div id="mainApp" style="display: none;" class="p-4 md:p-8 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-2" style="text-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+                🌸 HBZ POS 🌸
+            </h1>
+            <p class="text-white text-lg opacity-90">Selamat Berelanja ✨</p>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="flex justify-center gap-4 mb-8 flex-wrap">
+            <button class="tab-btn active" onclick="switchTab('kasir')" data-tab="kasir">
+                💰 Kasir
+            </button>
+            <button class="tab-btn" onclick="switchTab('products')" data-tab="products">
+                📦 Manajemen Produk
+            </button>
+            <button class="tab-btn" onclick="switchTab('history')" data-tab="history">
+                📜 Riwayat
+            </button>
+        </div>
+        
+        <!-- Tab Content: Kasir -->
+        <div id="kasirTab" class="tab-content">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Products List -->
+                <div class="md:col-span-2">
+                    <div class="kawaii-card fade-in">
+                        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 text-primary">
+                            🛍️ Produk
+                        </h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="productList">
+                            <!-- Products will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart -->
+                <div class="md:col-span-1">
+                    <div class="kawaii-card fade-in sticky top-4">
+                        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 text-primary">
+                            🛒 Keranjang
+                        </h2>
+                        <div id="cartItems" class="space-y-3 mb-4 max-h-64 overflow-y-auto">
+                            <p class="text-secondary text-center py-8">Keranjang kosong~ 🥺</p>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between text-xl font-bold mb-4 text-primary">
+                                <span>Total:</span>
+                                <span id="totalPrice">Rp 0</span>
+                            </div>
+                            <input type="number" class="input-kawaii mb-3" id="paymentInput" placeholder="Jumlah Bayar (Rp)">
+                            <div class="flex justify-between mb-4 text-primary" id="changeDisplay" style="display: none;">
+                                <span class="font-bold">Kembalian:</span>
+                                <span class="font-bold text-green-500" id="changeAmount">Rp 0</span>
+                            </div>
+                            <button class="btn-kawaii w-full" onclick="checkout()">
+                                ✨ Checkout Sekarang! ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Products Management -->
+        <div id="productsTab" class="tab-content" style="display: none;">
+            <div class="kawaii-card fade-in max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-primary">📦 Manajemen Produk</h2>
+                
+                <!-- Add Product Form -->
+                <div class="bg-pink-50 dark:bg-gray-800 p-6 rounded-2xl mb-6">
+                    <h3 class="text-xl font-bold mb-4 text-primary">Tambah Produk Baru ✨</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" class="input-kawaii" id="newProductName" placeholder="Nama Produk">
+                        <input type="number" class="input-kawaii" id="newProductPrice" placeholder="Harga (Rp)">
+                        <input type="url" class="input-kawaii md:col-span-2" id="newProductImage" placeholder="URL Gambar (contoh: https://example.com/image.jpg)">
+                        <button class="btn-kawaii md:col-span-2" onclick="addProduct()">
+                            ➕ Tambah Produk
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product List -->
+                <div class="space-y-3" id="productManagementList">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: History -->
+        <div id="historyTab" class="tab-content" style="display: none;">
+            <div class="kawaii-card fade-in max-w-4xl mx-auto">
+                <div class="flex justify-between items-center mb-6 flex-wrap gap-3">
+                    <h2 class="text-2xl font-bold text-primary">📜 Riwayat Transaksi</h2>
+                    <div class="flex gap-2">
+                        <button class="btn-secondary text-sm" onclick="downloadHistoryJSON()">
+                            💾 Download JSON
+                        </button>
+                        <button class="btn-kawaii text-sm" onclick="clearHistory()">
+                            🗑️ Hapus Semua
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-3" id="historyList">
+                    <!-- History will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Float Button -->
+    <div class="cart-float" onclick="switchTab('kasir')" id="cartFloat" style="display: none;">
+        <span class="text-2xl">🛒</span>
+        <div class="cart-badge" id="cartBadge">0</div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="font-bold mb-1 text-primary" id="notifTitle">Success!</div>
+        <div class="text-secondary" id="notifMessage">Message here</div>
+    </div>
+    
+    <!-- Hidden Receipt for Print -->
+    <div id="receiptPrint" style="display: none;"></div>
+    
+    <script>
+        // Initialize Data
+        let products = [];
+        let cart = [];
+        let history = [];
+        
+        // Load from LocalStorage
+        function loadData() {
+            const savedProducts = localStorage.getItem('products');
+            const savedHistory = localStorage.getItem('history');
+            
+            if (savedProducts) {
+                products = JSON.parse(savedProducts);
+            } else {
+                // Default products with images
+                products = [
+                    { id: 1, name: 'Ramen Ichiraku', price: 35000, imageUrl: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400' },
+                    { id: 2, name: 'Onigiri Kawaii', price: 15000, imageUrl: 'https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=400' },
+                    { id: 3, name: 'Matcha Latte', price: 25000, imageUrl: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400' },
+                    { id: 4, name: 'Takoyaki Party', price: 30000, imageUrl: 'https://images.unsplash.com/photo-1583892332788-b2a7e6f7a450?w=400' },
+                    { id: 5, name: 'Mochi Sweet', price: 20000, imageUrl: 'https://images.unsplash.com/photo-1582716401301-b2407dc7563d?w=400' },
+                    { id: 6, name: 'Sushi Roll', price: 40000, imageUrl: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400' },
+                ];
+                saveProducts();
+            }
+            
+            if (savedHistory) {
+                history = JSON.parse(savedHistory);
+            }
+        }
+        
+        // Save Data
+        function saveProducts() {
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+        
+        function saveHistory() {
+            localStorage.setItem('history', JSON.stringify(history));
+        }
+        
+        // Create Sakura Petals
+        function createSakura() {
+            const container = document.getElementById('sakuraContainer');
+            for (let i = 0; i < 20; i++) {
+                const sakura = document.createElement('div');
+                sakura.className = 'sakura';
+                sakura.style.left = Math.random() * 100 + '%';
+                sakura.style.animationDelay = Math.random() * 10 + 's';
+                sakura.style.animationDuration = (Math.random() * 5 + 10) + 's';
+                container.appendChild(sakura);
+            }
+        }
+        
+        // Enter App
+        function enterApp() {
+            document.getElementById('landingPage').classList.add('hide');
+            setTimeout(() => {
+                document.getElementById('landingPage').style.display = 'none';
+                document.getElementById('mainApp').style.display = 'block';
+                document.getElementById('cartFloat').style.display = 'flex';
+                renderProducts();
+            }, 500);
+        }
+        
+        // Switch Tab
+        function switchTab(tab) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+            
+            // Remove active class
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            if (tab === 'kasir') {
+                document.getElementById('kasirTab').style.display = 'block';
+                renderProducts();
+            } else if (tab === 'products') {
+                document.getElementById('productsTab').style.display = 'block';
+                renderProductManagement();
+            } else if (tab === 'history') {
+                document.getElementById('historyTab').style.display = 'block';
+                renderHistory();
+            }
+            
+            // Add active class
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+        }
+        
+        // Render Products
+        function renderProducts() {
+            const container = document.getElementById('productList');
+            container.innerHTML = products.map(product => `
+                <div class="product-card" onclick="addToCart(${product.id})">
+                    <img src="${product.imageUrl}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'">
+                    <div class="font-bold text-center mb-1 text-primary">${product.name}</div>
+                    <div class="text-center text-pink-600 dark:text-pink-400 font-bold">
+                        Rp ${product.price.toLocaleString('id-ID')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Add to Cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            renderCart();
+            updateCartBadge();
+            showNotification('Yatta! ✨', `${product.name} ditambahkan ke keranjang!`);
+        }
+        
+        // Render Cart
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-secondary text-center py-8">Keranjang kosong~ 🥺</p>';
+                document.getElementById('totalPrice').textContent = 'Rp 0';
+                document.getElementById('changeDisplay').style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = cart.map(item => `
+                <div class="bg-pink-50 dark:bg-gray-800 p-3 rounded-xl flex items-center gap-3">
+                    <img src="${item.imageUrl}" alt="${item.name}" class="w-12 h-12 object-cover rounded-lg" onerror="this.src='https://via.placeholder.com/100'">
+                    <div class="flex-1">
+                        <div class="font-bold text-primary">${item.name}</div>
+                        <div class="text-sm text-pink-600 dark:text-pink-400">
+                            Rp ${item.price.toLocaleString('id-ID')}
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="bg-pink-200 dark:bg-pink-900 text-primary w-8 h-8 rounded-full font-bold" onclick="decreaseQuantity(${item.id})">-</button>
+                        <span class="font-bold w-8 text-center text-primary">${item.quantity}</span>
+                        <button class="bg-pink-500 text-white w-8 h-8 rounded-full font-bold" onclick="increaseQuantity(${item.id})">+</button>
+                    </div>
+                    <button class="text-red-500 font-bold" onclick="removeFromCart(${item.id})">🗑️</button>
+                </div>
+            `).join('');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('totalPrice').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+            
+            calculateChange();
+        }
+        
+        // Cart Operations
+        function increaseQuantity(productId) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity++;
+                renderCart();
+                updateCartBadge();
+            }
+        }
+        
+        function decreaseQuantity(productId) {
+            const item = cart.find(i => i.id === productId);
+            if (item && item.quantity > 1) {
+                item.quantity--;
+                renderCart();
+                updateCartBadge();
+            }
+        }
+        
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            renderCart();
+            updateCartBadge();
+        }
+        
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartBadge').textContent = totalItems;
+        }
+        
+        // Calculate Change
+        function calculateChange() {
+            const paymentInput = document.getElementById('paymentInput');
+            const changeDisplay = document.getElementById('changeDisplay');
+            const changeAmount = document.getElementById('changeAmount');
+            
+            paymentInput.addEventListener('input', () => {
+                const payment = parseInt(paymentInput.value) || 0;
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const change = payment - total;
+                
+                if (change >= 0 && payment > 0) {
+                    changeDisplay.style.display = 'flex';
+                    changeAmount.textContent = `Rp ${change.toLocaleString('id-ID')}`;
+                } else {
+                    changeDisplay.style.display = 'none';
+                }
+            });
+        }
+        
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Gomen ne~ 😅', 'Keranjang masih kosong!');
+                return;
+            }
+            
+            const payment = parseInt(document.getElementById('paymentInput').value) || 0;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            if (payment < total) {
+                showNotification('Gomen ne~ 😅', 'Uang tidak cukup!');
+                return;
+            }
+            
+            // Save to history
+            const transaction = {
+                id: Date.now(),
+                date: new Date().toLocaleString('id-ID'),
+                items: [...cart],
+                total: total,
+                payment: payment,
+                change: payment - total
+            };
+            
+            history.unshift(transaction);
+            saveHistory();
+            
+            // Clear cart
+            cart = [];
+            renderCart();
+            updateCartBadge();
+            document.getElementById('paymentInput').value = '';
+            
+            showNotification('「Yatta! ✨」', 'Transaksi Berhasil! Arigatou Gozaimasu 💖');
+        }
+        
+        // Product Management
+        function addProduct() {
+            const name = document.getElementById('newProductName').value.trim();
+            const price = parseInt(document.getElementById('newProductPrice').value) || 0;
+            const imageUrl = document.getElementById('newProductImage').value.trim() || 'https://via.placeholder.com/400x300?text=No+Image';
+            
+            if (!name || price <= 0) {
+                showNotification('Gomen ne~ 😅', 'Mohon isi semua data dengan benar!');
+                return;
+            }
+            
+            const newProduct = {
+                id: Date.now(),
+                name: name,
+                price: price,
+                imageUrl: imageUrl
+            };
+            
+            products.push(newProduct);
+            saveProducts();
+            
+            // Clear inputs
+            document.getElementById('newProductName').value = '';
+            document.getElementById('newProductPrice').value = '';
+            document.getElementById('newProductImage').value = '';
+            
+            renderProductManagement();
+            showNotification('Sugoi! 🌟', 'Produk berhasil ditambahkan!');
+        }
+        
+        function renderProductManagement() {
+            const container = document.getElementById('productManagementList');
+            
+            if (products.length === 0) {
+                container.innerHTML = '<p class="text-secondary text-center py-8">Belum ada produk~ 🥺</p>';
+                return;
+            }
+            
+            container.innerHTML = products.map(product => `
+                <div class="bg-pink-50 dark:bg-gray-800 p-4 rounded-xl flex items-center gap-4">
+                    <img src="${product.imageUrl}" alt="${product.name}" class="w-20 h-20 object-cover rounded-lg" onerror="this.src='https://via.placeholder.com/100'">
+                    <div class="flex-1">
+                        <div class="font-bold text-lg text-primary">${product.name}</div>
+                        <div class="text-pink-600 dark:text-pink-400 font-bold">
+                            Rp ${product.price.toLocaleString('id-ID')}
+                        </div>
+                        <div class="text-xs text-secondary truncate">${product.imageUrl}</div>
+                    </div>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded-full font-bold hover:bg-red-600 transition" onclick="deleteProduct(${product.id})">
+                        🗑️ Hapus
+                    </button>
+                </div>
+            `).join('');
+        }
+        
+        function deleteProduct(productId) {
+            if (!confirm('Yakin mau hapus produk ini?')) return;
+            
+            products = products.filter(p => p.id !== productId);
+            saveProducts();
+            renderProductManagement();
+            renderProducts();
+            showNotification('Bye bye~ 👋', 'Produk berhasil dihapus!');
+        }
+        
+        // History
+        function renderHistory() {
+            const container = document.getElementById('historyList');
+            
+            if (history.length === 0) {
+                container.innerHTML = '<p class="text-secondary text-center py-8">Belum ada transaksi~ 📜</p>';
+                return;
+            }
+            
+            container.innerHTML = history.map(trans => `
+                <div class="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 p-4 rounded-xl">
+                    <div class="flex justify-between items-start mb-3 flex-wrap gap-2">
+                        <div>
+                            <div class="font-bold text-lg text-primary">Transaksi #${trans.id}</div>
+                            <div class="text-sm text-secondary">${trans.date}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-pink-600 dark:text-pink-400">
+                                Rp ${trans.total.toLocaleString('id-ID')}
+                            </div>
+                            <div class="text-sm text-secondary">Kembalian: Rp ${trans.change.toLocaleString('id-ID')}</div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-900 p-3 rounded-lg mb-3">
+                        ${trans.items.map(item => `
+                            <div class="flex justify-between text-sm mb-1 items-center">
+                                <div class="flex items-center gap-2">
+                                    <img src="${item.imageUrl}" alt="${item.name}" class="w-8 h-8 object-cover rounded" onerror="this.src='https://via.placeholder.com/50'">
+                                    <span class="text-primary">${item.name} x${item.quantity}</span>
+                                </div>
+                                <span class="font-bold text-primary">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button class="btn-secondary text-sm w-full" onclick="printReceipt(${trans.id})">
+                        🖨️ Print Receipt
+                    </button>
+                </div>
+            `).join('');
+        }
+        
+        function clearHistory() {
+            if (!confirm('Yakin mau hapus semua riwayat?')) return;
+            
+            history = [];
+            saveHistory();
+            renderHistory();
+            showNotification('💕', 'Riwayat berhasil dihapus!');
+        }
+        
+        // Print Receipt
+        function printReceipt(transactionId) {
+            const transaction = history.find(t => t.id === transactionId);
+            if (!transaction) return;
+            
+            const receiptHTML = `
+                <div style="max-width: 400px; margin: 0 auto; padding: 20px; font-family: 'Courier New', monospace;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h1 style="font-size: 24px; margin: 0;">🌸 HBZ POS 🌸</h1>
+                        <p style="margin: 5px 0;">いらっしゃいませ！</p>
+                        <p style="font-size: 12px; margin: 5px 0;">━━━━━━━━━━━━━━━━━━━━</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p><strong>Transaksi ID:</strong> #${transaction.id}</p>
+                        <p><strong>Tanggal:</strong> ${transaction.date}</p>
+                        <p style="border-bottom: 1px dashed #ccc; margin: 10px 0;"></p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        ${transaction.items.map(item => `
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>${item.name} x${item.quantity}</span>
+                                <span>Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</span>
+                            </div>
+                        `).join('')}
+                        <p style="border-bottom: 1px dashed #ccc; margin: 10px 0;"></p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold;">
+                            <span>TOTAL:</span>
+                            <span>Rp ${transaction.total.toLocaleString('id-ID')}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                            <span>Bayar:</span>
+                            <span>Rp ${transaction.payment.toLocaleString('id-ID')}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                            <span>Kembalian:</span>
+                            <span>Rp ${transaction.change.toLocaleString('id-ID')}</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <p style="font-size: 12px;">━━━━━━━━━━━━━━━━━━━━</p>
+                        <p style="margin: 10px 0; font-weight: bold;">Arigatou Gozaimasu! 💖</p>
+                        <p style="font-size: 12px;">Mata ne! ✨</p>
+                    </div>
+                </div>
+            `;
+            
+            const receiptDiv = document.getElementById('receiptPrint');
+            receiptDiv.innerHTML = receiptHTML;
+            receiptDiv.style.display = 'block';
+            
+            window.print();
+            
+            setTimeout(() => {
+                receiptDiv.style.display = 'none';
+            }, 100);
+        }
+        
+        // Download History as JSON
+        function downloadHistoryJSON() {
+            if (history.length === 0) {
+                showNotification('Gomen ne~ 😅', 'Belum ada riwayat untuk didownload!');
+                return;
+            }
+            
+            const dataStr = JSON.stringify(history, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `kawaii-pos-history-${Date.now()}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            showNotification('Yatta! 💾', 'History berhasil didownload!');
+        }
+        
+        // Dark Mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('darkModeIcon');
+            icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        }
+        
+        // Notification
+        function showNotification(title, message) {
+            const notif = document.getElementById('notification');
+            document.getElementById('notifTitle').textContent = title;
+            document.getElementById('notifMessage').textContent = message;
+            
+            notif.classList.add('show');
+            setTimeout(() => {
+                notif.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Initialize
+        loadData();
+        createSakura();
+        calculateChange();
+    </script>
+</body>
+</html>
